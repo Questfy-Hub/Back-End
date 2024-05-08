@@ -1,6 +1,8 @@
 package com.questifyHub.app.Entities;
 
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -24,16 +26,37 @@ public class User {
     @Column(name="points")
     private int points;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_companyCode")
+    private Company companyUser;
+
+    @ManyToMany
+    @JoinTable(
+        name = "User_Set_Task",
+        joinColumns = @JoinColumn(name = "fk_user"),
+        inverseJoinColumns = @JoinColumn(name = "fk_task")
+    )
+    private List<Task> taskUser;
+
+    
+
     public User() {}
-    public User(String fullname, String username, String password, String email, String cpf, String role) {
+    
+
+    public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
+            int points, Company companyUser, List<Task> taskUser) {
+        this.id = id;
         this.fullname = fullname;
         this.username = username;
         this.password = password;
         this.email = email;
         this.cpf = cpf;
         this.role = role;
-        this.points = 0;
+        this.points = points;
+        this.companyUser = companyUser;
+        this.taskUser = taskUser;
     }
+
 
     public Long getId() {
         return id;
@@ -95,4 +118,22 @@ public class User {
         this.points = points;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Company getCompanyUser() {
+        return companyUser;
+    }
+    public void setCompanyUser(Company companyUser) {
+        this.companyUser = companyUser;
+    }
+    public List<Task> getTaskUser() {
+        return taskUser;
+    }
+    public void setTaskUser(List<Task> taskUser) {
+        this.taskUser = taskUser;
+    }
+
+
+    
 }

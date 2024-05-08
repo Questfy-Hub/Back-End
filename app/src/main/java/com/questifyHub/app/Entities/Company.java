@@ -1,5 +1,7 @@
 package com.questifyHub.app.Entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,13 +15,27 @@ public class Company {
     @Column(name="cnpj")
     private String cnpj;
 
+    @OneToMany(mappedBy = "companyUser")
+    private List<User> userList;
+
+
+    @OneToMany(mappedBy = "companyGifts")
+    private List<Gifts> giftsList;
+
+
     public Company(){}
 
-    public Company(int companyCode, String companyName, String cnpj) {
+
+
+    public Company(int companyCode, String companyName, String cnpj, List<User> userList, List<Gifts> giftsList) {
         this.companyCode = companyCode;
         this.companyName = companyName;
         this.cnpj = cnpj;
+        this.userList = userList;
+        this.giftsList = giftsList;
     }
+
+
 
     public int getCompanyCode() {
         return companyCode;
@@ -44,5 +60,23 @@ public class Company {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public List<Gifts> getGiftsList() {
+        return giftsList;
+    }
+
+    public void setGiftsList(List<Gifts> giftsList) {
+        this.giftsList = giftsList;
+    }
+
+    
     
 }

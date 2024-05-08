@@ -15,14 +15,23 @@ public class Gifts {
     @Column(name = "category")
     private String category;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_companyCode")
+    private Company companyGifts;
+
     public Gifts(){}
 
-    public Gifts(int giftCode, String giftName, Double price, String category) {
+
+
+    public Gifts(int giftCode, String giftName, Double price, String category, Company companyGifts) {
         this.giftCode = giftCode;
         this.giftName = giftName;
         this.price = price;
         this.category = category;
+        this.companyGifts = companyGifts;
     }
+
+
 
     public int getGiftCode() {
         return giftCode;
@@ -55,6 +64,15 @@ public class Gifts {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public Company getCompanyGifts() {
+        return companyGifts;
+    }
+
+    public void setCompanyGifts(Company companyGifts) {
+        this.companyGifts = companyGifts;
+    }
+    
     
     
 }
