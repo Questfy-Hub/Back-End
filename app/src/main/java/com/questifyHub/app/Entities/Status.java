@@ -1,5 +1,7 @@
 package com.questifyHub.app.Entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,22 +15,17 @@ public class Status {
     @Column(name ="statusName")
     private String statusName;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_taskId")
-    private Task taskStatus;
+    @OneToMany(mappedBy = "statusTask")
+    private List<Task> taskList;
 
 
     public Status(){}
-
-
-
-    public Status(int statusCode, String description, String statusName, Task taskStatus) {
+    public Status(int statusCode, String description, String statusName, List<Task> taskList) {
         this.statusCode = statusCode;
         this.description = description;
         this.statusName = statusName;
-        this.taskStatus = taskStatus;
+        this.taskList = taskList;
     }
-
 
 
     public int getStatusCode() {
@@ -55,15 +52,12 @@ public class Status {
         this.statusName = statusName;
     }
 
-    public Task getTaskStatus() {
-        return taskStatus;
+    public List<Task> getTaskList() {
+        return taskList;
     }
 
-    public void setTaskStatus(Task taskStatus) {
-        this.taskStatus = taskStatus;
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
     }
-
-    
-    
-    
+  
 }

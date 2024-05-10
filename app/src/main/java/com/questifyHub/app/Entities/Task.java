@@ -24,19 +24,16 @@ public class Task {
     @Column(name = "dificulty")
     private int dificulty;
 
-    @OneToMany(mappedBy = "taskStatus")
-    private List<Status> statusList;
+    @ManyToOne
+    @JoinColumn(name = "fk_statusId")
+    private Status statusTask;
 
     @ManyToMany(mappedBy = "taskUser")
     private List<User> userTask;
 
     public Task(){}
-
-
-
     public Task(int taskCode, String shortDescription, String longDescription, LocalDate initialDate,
-            LocalDate conclusionDate, LocalDate endLineDate, int dificulty, List<Status> statusList,
-            List<User> userTask) {
+            LocalDate conclusionDate, LocalDate endLineDate, int dificulty, Status statusTask, List<User> userTask) {
         this.taskCode = taskCode;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -44,7 +41,7 @@ public class Task {
         this.conclusionDate = conclusionDate;
         this.endLineDate = endLineDate;
         this.dificulty = dificulty;
-        this.statusList = statusList;
+        this.statusTask = statusTask;
         this.userTask = userTask;
     }
 
@@ -106,14 +103,6 @@ public class Task {
         this.dificulty = dificulty;
     }
 
-    public List<Status> getStatusList() {
-        return statusList;
-    }
-
-    public void setStatusList(List<Status> statusList) {
-        this.statusList = statusList;
-    }
-
     public List<User> getUserTask() {
         return userTask;
     }
@@ -121,8 +110,10 @@ public class Task {
     public void setUserTask(List<User> userTask) {
         this.userTask = userTask;
     }
-
-
-    
-    
+    public Status getStatusTask() {
+        return statusTask;
+    }
+    public void setStatusTask(Status statusTask) {
+        this.statusTask = statusTask;
+    }
 }
