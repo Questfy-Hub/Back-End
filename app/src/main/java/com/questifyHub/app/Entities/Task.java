@@ -116,4 +116,13 @@ public class Task {
     public void setStatusTask(Status statusTask) {
         this.statusTask = statusTask;
     }
+    @Override
+    public String toString() {
+        return "Task [taskCode=" + taskCode + ", shortDescription=" + shortDescription + ", longDescription="
+                + longDescription + ", initialDate=" + initialDate + ", conclusionDate=" + conclusionDate
+                + ", endLineDate=" + endLineDate + ", dificulty=" + dificulty + ", statusTask=" + statusTask
+                + ", userTask=" + userTask + "]";
+    }
+
+    
 }
