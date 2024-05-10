@@ -3,6 +3,7 @@ package com.questifyHub.app.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +27,7 @@ public class User {
     @Column(name="points")
     private int points;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
     private Company companyUser;

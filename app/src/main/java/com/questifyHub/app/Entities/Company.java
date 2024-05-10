@@ -2,6 +2,7 @@ package com.questifyHub.app.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,11 +15,11 @@ public class Company {
     private String companyName;
     @Column(name="cnpj")
     private String cnpj;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "companyUser")
     private List<User> userList;
 
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "companyGifts")
     private List<Gifts> giftsList;
 

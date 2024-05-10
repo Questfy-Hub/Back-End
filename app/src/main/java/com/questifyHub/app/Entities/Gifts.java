@@ -1,5 +1,6 @@
 package com.questifyHub.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Gifts {
     @Column(name = "category")
     private String category;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
     private Company companyGifts;

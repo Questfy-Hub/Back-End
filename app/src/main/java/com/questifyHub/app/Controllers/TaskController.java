@@ -20,6 +20,7 @@ public class TaskController {
     public List<Task> getTasks(){
         return this.taskRepository.findAll();
     }
+
     @PostMapping("/tasks")
     public String createTask(@RequestBody() Task task ){
         try {

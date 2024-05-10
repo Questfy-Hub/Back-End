@@ -2,6 +2,7 @@ package com.questifyHub.app.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Status {
     @Column(name ="statusName")
     private String statusName;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "statusTask")
     private List<Task> taskList;
 

@@ -3,6 +3,7 @@ package com.questifyHub.app.Entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -24,6 +25,7 @@ public class Task {
     @Column(name = "dificulty")
     private int dificulty;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
     private Status statusTask;

@@ -21,8 +21,12 @@ public class UserController {
 
     @PostMapping("/users")
     public String createUser(@RequestBody User user){
-        userRepository.save(user);
-        return "User created" + user.toString();
+        try{
+            userRepository.save(user);
+            return "User created" + user.toString();
+        }catch(Exception e){
+            return e.getMessage();
+        }
     }
 
 
