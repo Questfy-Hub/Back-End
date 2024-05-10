@@ -134,6 +134,20 @@ public class User {
         this.taskUser = taskUser;
     }
 
-
-    
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", fullname='" + fullname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", role='" + role + '\'' +
+                ", role='" + role + '\'' +
+                ", points=" + points +
+                ", companyUser=" + companyUser +
+                ", taskUser=" + taskUser +
+                '}';
+    }
 }
