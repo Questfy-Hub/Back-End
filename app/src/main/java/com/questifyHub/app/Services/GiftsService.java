@@ -19,18 +19,18 @@ public class GiftsService {
             .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontradp com o id"+id));
 
     }
-
+    //TODO: Tratamento de Excessão
     public List<Gifts> getAllGifts(){
         return giftsRepository.findAll();
     }
-
+    //TODO: Tratamento de Excessão
     public Gifts creatGifts(Gifts gifts){
         return giftsRepository.save(gifts);
     }
-
+    //TODO: Tratamento de Excessão
     public Gifts updateGifts(Long id, Gifts giftsDetails){
         Gifts gifts = giftsRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontradp com o id"+id));
+            .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontrado com o id"+id));
 
             gifts.setGiftName(giftsDetails.getGiftName());
             gifts.setPrice(giftsDetails.getPrice());
@@ -39,7 +39,7 @@ public class GiftsService {
         return giftsRepository.save(gifts);
 
     }
-
+    //TODO: Tratamento de Excessão
     public void deleteGifts(Long id){
         giftsRepository.deleteById(id);
     }

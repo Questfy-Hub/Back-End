@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.questifyHub.app.Entities.Company;
 import com.questifyHub.app.Services.CompanyService;
 @RestController
-@RequestMapping("/Company")
+@RequestMapping("/company")
 public class CompanyController {
 
 
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("/Company/{id}")
+    @GetMapping("/{id}")
     public Company getCompanyById(@PathVariable Long id){
         return companyService.getCompanyById(id);
     }
@@ -45,6 +45,11 @@ public class CompanyController {
     @DeleteMapping("/Company/{id}")
     public void deleteCompany(@PathVariable Long id){
         companyService.deleteCompany(id);
+    }
+
+    @GetMapping("/teste")
+    public List<Company> getTest(){
+        return companyService.getOnlyCompany();
     }
 
 }

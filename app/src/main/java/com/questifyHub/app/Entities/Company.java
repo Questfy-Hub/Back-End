@@ -15,6 +15,7 @@ public class Company {
     private String companyName;
     @Column(name="cnpj")
     private String cnpj;
+
     @JsonManagedReference
     @OneToMany(mappedBy = "companyUser")
     private List<User> userList;
@@ -27,6 +28,13 @@ public class Company {
     public Company(){}
 
 
+    /**
+     * @param companyCode
+     * @param companyName
+     * @param cnpj
+     * @param userList
+     * @param giftsList
+     */
 
     public Company(int companyCode, String companyName, String cnpj, List<User> userList, List<Gifts> giftsList) {
         this.companyCode = companyCode;

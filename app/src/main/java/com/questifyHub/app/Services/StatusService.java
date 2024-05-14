@@ -13,21 +13,21 @@ public class StatusService {
     
     @Autowired
     private StatusRepository statusRepository;
-
+    //TODO: Atualizar tratamento de excessão
     public Status getStatusById(Long id){
         return statusRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontradp com o id"+id));
 
     }
-
+    //TODO: Tratamento de Excessão
     public List<Status> getAllStatus(){
         return statusRepository.findAll();
     }
-
+    //TODO: Tratamento de Excessão
     public Status creatStatus(Status status){
         return statusRepository.save(status);
     }
-
+    //TODO: Atualizar tratamento de excessão
     public Status updateStatus(Long id, Status statusDetails){
         Status status = statusRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontradp com o id"+id));
@@ -38,7 +38,7 @@ public class StatusService {
         return statusRepository.save(status);
 
     }
-
+    //TODO: Tratamento de Excessão
     public void deleteStatus(Long id){
         statusRepository.deleteById(id);
     }

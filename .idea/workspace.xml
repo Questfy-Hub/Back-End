@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Gifts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Gifts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/GiftsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/GiftsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/StatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/StatusService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,11 @@
       <updated>1715036234548</updated>
       <workItem from="1715036235592" duration="1651000" />
       <workItem from="1715296336320" duration="6717000" />
-      <workItem from="1715341019830" duration="2754000" />
+      <workItem from="1715341019830" duration="9001000" />
+      <workItem from="1715445006778" duration="1255000" />
+      <workItem from="1715475180359" duration="1520000" />
+      <workItem from="1715600901853" duration="4781000" />
+      <workItem from="1715641206399" duration="4871000" />
     </task>
     <servers />
   </component>
