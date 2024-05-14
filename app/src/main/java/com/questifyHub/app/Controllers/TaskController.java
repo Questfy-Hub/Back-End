@@ -1,34 +1,50 @@
 package com.questifyHub.app.Controllers;
 
-import com.questifyHub.app.Entities.Task;
-import com.questifyHub.app.Repositories.TaskRepository;
+import java.util.List;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-@RestController()
+import com.questifyHub.app.Entities.Task;
+import com.questifyHub.app.Services.TaskService;
+@RestController
+@RequestMapping("/task")
 public class TaskController {
-        private final TaskRepository taskRepository;
 
-    public TaskController(TaskRepository taskRepository) {this.taskRepository = taskRepository;}
-    @CrossOrigin("http://localhost:4200")
-    @GetMapping("/tasks")
-    public List<Task> getTasks(){
-        return this.taskRepository.findAll();
+
+    @Autowired
+    private TaskService taskService;
+
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable Long id){
+        return taskService.getTaskById(id);
     }
 
-    @PostMapping("/tasks")
-    public String createTask(@RequestBody() Task task ){
-        try {
-            taskRepository.save(task);
-            return "Tarefa criada" + task.toString();
-        } catch (Exception e) {
-           return e.getMessage();
-        }
+    @GetMapping
+    public List <Task> getAllTask(){
+        return taskService.getAllTask();
+    }
+
+    @PostMapping
+    public Task creatTask(@RequestBody Task task){
+        return taskService.createTask(task);
+    }
+
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Task task){
+        return taskService.updateTask(id, task);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteTask(id);
     }
 
 }

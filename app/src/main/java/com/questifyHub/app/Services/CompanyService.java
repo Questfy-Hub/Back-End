@@ -49,6 +49,8 @@ public class CompanyService {
 
     /*
     Arruma dps otario!
+
+    Nun vo
      */
     public List<Company> getOnlyCompany(){
         Query query = entityManager.createQuery("select companyCode, companyName, cnpj from Company c");

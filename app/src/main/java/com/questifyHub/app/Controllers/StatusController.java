@@ -22,7 +22,7 @@ public class StatusController {
     @Autowired
     private StatusService statusService;
 
-    @GetMapping("/status/{id}")
+    @GetMapping("/{id}")
     public Status getStatusById(@PathVariable Long id){
         return statusService.getStatusById(id);
     }
@@ -34,15 +34,15 @@ public class StatusController {
 
     @PostMapping
     public Status creatStatus(@RequestBody Status status){
-        return statusService.creatStatus(status);
+        return statusService.createStatus(status);
     }
 
-    @PutMapping("/status/{id}")
+    @PutMapping("/{id}")
     public Status updateStatus(@PathVariable Long id, @RequestBody Status status){
         return statusService.updateStatus(id, status);
     }
 
-    @DeleteMapping("/status/{id}")
+    @DeleteMapping("/{id}")
     public void deleteStatus(@PathVariable Long id){
         statusService.deleteStatus(id);
     }
