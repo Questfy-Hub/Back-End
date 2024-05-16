@@ -1,31 +1,53 @@
 package com.questifyHub.app.Controllers;
 
-import com.questifyHub.app.Entities.User;
-import com.questifyHub.app.Repositories.UserRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 import java.util.List;
-//TODO: Atualizar com utilização de Services
-@RestController()
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.questifyHub.app.Entities.User;
+import com.questifyHub.app.Services.UserService;
+@RestController
+@RequestMapping("/user")
 public class UserController {
-    private final UserRepository userRepository;
-    private final EntityManager entityManager;
 
-    public UserController(UserRepository userRepository, EntityManager em, EntityManager entityManager) {this.userRepository = userRepository;
-        this.entityManager = entityManager;
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id){
+        return userService.getUserById(id);
     }
 
-    @CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app"})
-    @GetMapping("/users")
-    public List<User> getUsers(){
-        teste();
-        return this.userRepository.findAll();
+    @GetMapping
+    public List <User> getAllUser(){
+        return userService.getAllUser();
     }
 
+    @PostMapping
+    public User creatUser(@RequestBody User user){
+        return userService.createUser(user);
+    }
 
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User user){
+        return userService.updateUser(id, user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+    }
+
+    /* 
     @PostMapping("/users")
     public String createUser(@RequestBody User user){
         try{
@@ -42,6 +64,6 @@ public class UserController {
         for(User u : users){
             System.out.println(u.toString());
         }
-    }
+    }*/
 
 }

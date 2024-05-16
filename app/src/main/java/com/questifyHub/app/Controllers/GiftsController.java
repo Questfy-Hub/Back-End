@@ -22,7 +22,7 @@ public class GiftsController {
     @Autowired
     private GiftsService giftsService;
 
-    @GetMapping("/gifts/{id}")
+    @GetMapping("/{id}")
     public Gifts getGiftsById(@PathVariable Long id){
         return giftsService.getGiftsById(id);
     }
@@ -37,12 +37,12 @@ public class GiftsController {
         return giftsService.creatGifts(gifts);
     }
 
-    @PutMapping("/gifts/{id}")
+    @PutMapping("/{id}")
     public Gifts updateGifts(@PathVariable Long id, @RequestBody Gifts gifts){
         return giftsService.updateGifts(id, gifts);
     }
 
-    @DeleteMapping("/gifts/{id}")
+    @DeleteMapping("/{id}")
     public void deleteGifts(@PathVariable Long id){
         giftsService.deleteGifts(id);
     }

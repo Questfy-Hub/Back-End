@@ -16,7 +16,7 @@ public class GiftsService {
 
     public Gifts getGiftsById(Long id){
         return giftsRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontradp com o id"+id));
+            .orElseThrow(() -> new ResourceNotFoundException("Prêmio não encontrado com o id"+id));
 
     }
     //TODO: Tratamento de Excessão
