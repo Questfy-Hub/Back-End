@@ -1,30 +1,30 @@
 package com.questifyHub.app.Entities;
 
-
+import com.questifyHub.app.Exceptions.InvalidEmailException;
 import java.util.List;
-
+import com.questifyHub.app.Regex.Regex;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="fullname")
+    @Column(name = "fullname")
     private String fullname;
     @Column(name = "username", unique = true)
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
-    @Column(name="cpf")
+    @Column(name = "cpf")
     private String cpf;
-    @Column(name="role")
+    @Column(name = "role")
     private String role;
-    @Column(name="points")
+    @Column(name = "points")
     private int points;
 
     @JsonBackReference
@@ -33,17 +33,11 @@ public class User {
     private Company companyUser;
 
     @ManyToMany
-    @JoinTable(
-        name = "User_Set_Task",
-        joinColumns = @JoinColumn(name = "fk_user"),
-        inverseJoinColumns = @JoinColumn(name = "fk_task")
-    )
+    @JoinTable(name = "User_Set_Task", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_task"))
     private List<Task> taskUser;
 
-    
-
-    public User() {}
-    
+    public User() {
+    }
 
     public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
             int points, Company companyUser, List<Task> taskUser) {
@@ -51,14 +45,19 @@ public class User {
         this.fullname = fullname;
         this.username = username;
         this.password = password;
-        this.email = email;
+        try {
+            if (Regex.validateEmail(email)) {
+                this.email = email;
+            }
+        } catch (InvalidEmailException e) {
+            System.out.println(e.getMessage());
+        }
         this.cpf = cpf;
         this.role = role;
         this.points = points;
         this.companyUser = companyUser;
         this.taskUser = taskUser;
     }
-
 
     public Long getId() {
         return id;
@@ -123,15 +122,19 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Company getCompanyUser() {
         return companyUser;
     }
+
     public void setCompanyUser(Company companyUser) {
         this.companyUser = companyUser;
     }
+
     public List<Task> getTaskUser() {
         return taskUser;
     }
+
     public void setTaskUser(List<Task> taskUser) {
         this.taskUser = taskUser;
     }

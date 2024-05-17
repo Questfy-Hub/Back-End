@@ -47,6 +47,11 @@ public class UserController {
         userService.deleteUser(id);
     }
 
+    @GetMapping
+    public boolean authentication(@RequestBody String email, String password){
+        return userService.authentication(email, password);
+    }
+
     /* 
     @PostMapping("/users")
     public String createUser(@RequestBody User user){
