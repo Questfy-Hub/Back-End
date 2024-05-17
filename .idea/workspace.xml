@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/GiftsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/GiftsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/StatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/StatusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Regex/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Regex/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +34,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AppApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xoris/Documents/GitHub/BackEnd/Questify-HUB&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.AppApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Xoris/Desktop/criptografia/criptografia",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="app" />
@@ -88,11 +84,21 @@
       <workItem from="1715445006778" duration="1255000" />
       <workItem from="1715475180359" duration="1520000" />
       <workItem from="1715600901853" duration="4781000" />
-      <workItem from="1715641206399" duration="4871000" />
+      <workItem from="1715641206399" duration="4950000" />
+      <workItem from="1715712921340" duration="1298000" />
+      <workItem from="1715886127204" duration="408000" />
+      <workItem from="1715900500861" duration="6081000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

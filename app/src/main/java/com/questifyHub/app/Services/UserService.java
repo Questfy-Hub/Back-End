@@ -62,7 +62,7 @@ public class UserService {
         try {
             if (Regex.validateEmail(login)) {
                 User temp = userRepository.getUserByEmail(login);
-                if (temp.getPassword() == password) {
+                if (BCrypt.checkpw(password, temp.getPassword())) {
                     return true;
                 }
             }
@@ -73,7 +73,6 @@ public class UserService {
             System.err.println(e.getMessage());
             return false;
         }
-
         return false;
     }
 }
