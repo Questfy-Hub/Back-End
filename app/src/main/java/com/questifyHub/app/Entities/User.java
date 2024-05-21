@@ -1,10 +1,13 @@
 package com.questifyHub.app.Entities;
 
 import com.questifyHub.app.Exceptions.InvalidEmailException;
+
+import java.nio.file.Files;
 import java.util.List;
 import com.questifyHub.app.Regex.Regex;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import java.io.File;
 
 @Entity
 @Table(name = "users")
@@ -27,6 +30,8 @@ public class User {
     @Column(name = "points")
     private int points;
 
+    private byte[] image;
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
@@ -40,7 +45,7 @@ public class User {
     }
 
     public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
-            int points, Company companyUser, List<Task> taskUser) {
+            int points, byte[] image,Company companyUser, List<Task> taskUser) {
         this.id = id;
         this.fullname = fullname;
         this.username = username;
@@ -55,6 +60,7 @@ public class User {
         this.cpf = cpf;
         this.role = role;
         this.points = points;
+        this.image = image;
         this.companyUser = companyUser;
         this.taskUser = taskUser;
     }
@@ -118,6 +124,10 @@ public class User {
     public void setPoints(int points) {
         this.points = points;
     }
+
+  public byte[] getImage() {return image;}
+
+   public void setImage(byte[] image) {this.image = image;}
 
     public void setId(Long id) {
         this.id = id;

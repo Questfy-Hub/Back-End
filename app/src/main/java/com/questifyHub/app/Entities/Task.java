@@ -24,7 +24,8 @@ public class Task {
     private LocalDate endLineDate;
     @Column(name = "dificulty")
     private int dificulty;
-
+    @Column(name = "priority")
+    private String priority;
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
@@ -35,7 +36,7 @@ public class Task {
 
     public Task(){}
     public Task(int taskCode, String shortDescription, String longDescription, LocalDate initialDate,
-            LocalDate conclusionDate, LocalDate endLineDate, int dificulty, Status statusTask, List<User> userTask) {
+            LocalDate conclusionDate, LocalDate endLineDate, int dificulty,String priority, Status statusTask, List<User> userTask) {
         this.taskCode = taskCode;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -43,6 +44,7 @@ public class Task {
         this.conclusionDate = conclusionDate;
         this.endLineDate = endLineDate;
         this.dificulty = dificulty;
+        this.priority = priority;
         this.statusTask = statusTask;
         this.userTask = userTask;
     }
@@ -104,7 +106,12 @@ public class Task {
     public void setDificulty(int dificulty) {
         this.dificulty = dificulty;
     }
-
+    public String getPriority() {
+        return priority;
+    }
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
     public List<User> getUserTask() {
         return userTask;
     }
@@ -118,13 +125,20 @@ public class Task {
     public void setStatusTask(Status statusTask) {
         this.statusTask = statusTask;
     }
+
     @Override
     public String toString() {
-        return "Task [taskCode=" + taskCode + ", shortDescription=" + shortDescription + ", longDescription="
-                + longDescription + ", initialDate=" + initialDate + ", conclusionDate=" + conclusionDate
-                + ", endLineDate=" + endLineDate + ", dificulty=" + dificulty + ", statusTask=" + statusTask
-                + ", userTask=" + userTask + "]";
+        return "Task{" +
+                "taskCode=" + taskCode +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", longDescription='" + longDescription + '\'' +
+                ", initialDate=" + initialDate +
+                ", conclusionDate=" + conclusionDate +
+                ", endLineDate=" + endLineDate +
+                ", dificulty=" + dificulty +
+                ", priority='" + priority + '\'' +
+                ", statusTask=" + statusTask +
+                ", userTask=" + userTask +
+                '}';
     }
-
-    
 }

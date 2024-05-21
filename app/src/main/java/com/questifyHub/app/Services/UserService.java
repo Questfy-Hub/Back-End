@@ -2,14 +2,21 @@ package com.questifyHub.app.Services;
 
 import java.util.List;
 
+
+import com.questifyHub.app.Model.AuthResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.questifyHub.app.Entities.User;
-import com.questifyHub.app.Exceptions.InvalidEmailException;
+
 import com.questifyHub.app.Exceptions.ResourceNotFoundException;
 import com.questifyHub.app.Regex.Regex;
 import com.questifyHub.app.Repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Service
@@ -23,6 +30,12 @@ public class UserService {
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado com o id" + id));
 
+    }
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
+    }
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
     }
 
     // TODO: Tratamento de Excessão
@@ -58,21 +71,30 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public boolean authentication(String login, String password) {
+    public AuthResponse authentication(String login, String password) {
+
         try {
             if (Regex.validateEmail(login)) {
                 User temp = userRepository.getUserByEmail(login);
-                if (BCrypt.checkpw(password, temp.getPassword())) {
-                    return true;
+                if(temp != null){
+                    if (BCrypt.checkpw(password, temp.getPassword())) {
+                        return new AuthResponse(true, "Autenticado com sucesso");
+                    }else{
+                        return new AuthResponse(false, "Senha Incorreta");
+                    }
+                }else{
+                    return new AuthResponse(false, "Email incorreto");
                 }
+
+            }else{
+                return new AuthResponse(false, "Formato de email incorreto");
             }
-        } catch (InvalidEmailException e) {
-            System.out.println(e.getMessage());
-            return false;
-        } catch (Exception e) {
+        }catch (Exception e) {
             System.err.println(e.getMessage());
-            return false;
+            return new AuthResponse(false, e.getMessage());
         }
-        return false;
     }
+
+    //Area de teste
+
 }
