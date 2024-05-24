@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import com.questifyHub.app.Entities.Company;
 import com.questifyHub.app.Model.AuthResponse;
 import com.questifyHub.app.Repositories.UserRepository;
+import com.questifyHub.app.Services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -26,6 +28,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private CompanyService companyService;
 
     @Autowired
     private UserRepository userRepository;
@@ -83,4 +87,23 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    //region Area de teste
+    @CrossOrigin("http://localhost:4200")
+    @PostMapping("try")
+    public void tryteste(@RequestParam String fullname ,@RequestParam String username, @RequestParam String email,
+                         @RequestParam String cpf, @RequestParam String role, @RequestParam String password ,
+                         @RequestParam(required = false) MultipartFile img, @RequestParam String company) throws IOException {
+        User temp;
+        Company c = companyService.getCompanyById(Long.parseLong(company));
+        if(img == null){
+
+            temp = new User(fullname, username, email, cpf, role, password, c);
+        }else {
+            temp = new User(fullname, username, email, cpf, role, password, img.getBytes(), c);
+        }
+
+        System.out.println(temp);
+        userService.createUser(temp);
+    }
+    //endregion
 }

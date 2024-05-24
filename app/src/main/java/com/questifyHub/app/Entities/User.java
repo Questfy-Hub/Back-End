@@ -65,6 +65,27 @@ public class User {
         this.taskUser = taskUser;
     }
 
+    public User(String fullname, String username, String email, String cpf, String role, String password, Company company) {
+        this.fullname = fullname;
+        this.username = username;
+        this.email = email;
+        this.cpf = cpf;
+        this.role = role;
+        this.password = password;
+        this.companyUser = company;
+    }
+
+    public User(String fullname, String username, String email, String cpf, String role, String password, byte[] bytes, Company companyUser) {
+        this.fullname = fullname;
+        this.username = username;
+        this.email = email;
+        this.cpf = cpf;
+        this.role = role;
+        this.password = password;
+        this.image = bytes;
+        this.companyUser = companyUser;
+    }
+
     public Long getId() {
         return id;
     }
