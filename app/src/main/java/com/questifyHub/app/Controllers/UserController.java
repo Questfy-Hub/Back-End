@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.questifyHub.app.DTOs.UserDTO;
 import com.questifyHub.app.Entities.User;
 import com.questifyHub.app.Services.UserService;
 import org.springframework.web.multipart.MultipartFile;
@@ -74,5 +75,11 @@ public class UserController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
                 .body(body);
+    }
+
+    @GetMapping("/teste")
+    public ResponseEntity<List<UserDTO>> getSimpleUser() {
+        List<UserDTO> users = userService.getAllJustUsers();
+        return ResponseEntity.ok(users);
     }
 }
