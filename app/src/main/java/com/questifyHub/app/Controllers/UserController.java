@@ -82,4 +82,5 @@ public class UserController {
         List<UserDTO> users = userService.getAllJustUsers();
         return ResponseEntity.ok(users);
     }
+
 }

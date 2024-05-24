@@ -23,6 +23,7 @@ import jakarta.persistence.Query;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Service
@@ -81,7 +82,7 @@ public class UserService {
     }
 
     public List<UserDTO> getAllJustUsers() {
-        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs(u.username, u.email, u.role, u.points) from Usuario u");
+        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs.UserDTO(u.username, u.email, u.role, u.points) from User u");
         return query.getResultList();
     }
 
@@ -111,6 +112,6 @@ public class UserService {
         }
     }
 
-    //Area de teste
+
 
 }
