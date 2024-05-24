@@ -47,4 +47,11 @@ public class TaskController {
         taskService.deleteTask(id);
     }
 
+    //Area de teste
+
+    @GetMapping("/users/{id}/tasks")
+    public List<Task> getTaskByUserId(@PathVariable Long id){
+        return taskService.getTaskByUserId(id);
+    }
+
 }
