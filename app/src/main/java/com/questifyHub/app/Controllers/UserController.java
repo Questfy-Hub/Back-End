@@ -1,6 +1,8 @@
 package com.questifyHub.app.Controllers;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -97,7 +99,7 @@ public class UserController {
         Company c = companyService.getCompanyById(Long.parseLong(company));
         if(img == null){
 
-            temp = new User(fullname, username, email, cpf, role, password, c);
+            temp = new User(fullname, username, email, cpf, role, password, Files.readAllBytes(Paths.get("clipart1297398.png")) ,c);
         }else {
             temp = new User(fullname, username, email, cpf, role, password, img.getBytes(), c);
         }

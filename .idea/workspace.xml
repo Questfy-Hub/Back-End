@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WhatsApp Image 2024-03-05 at 13.56.05.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +40,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AppApplication.executor": "Debug",
+    "Spring Boot.AppApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Xoris/Desktop/criptografia/criptografia",
@@ -96,7 +95,7 @@
       <workItem from="1716292423671" duration="15161000" />
       <workItem from="1716313801061" duration="2604000" />
       <workItem from="1716506497426" duration="5234000" />
-      <workItem from="1716550960896" duration="13777000" />
+      <workItem from="1716550960896" duration="15237000" />
     </task>
     <servers />
   </component>
