@@ -22,7 +22,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Task getTaskById(@PathVariable Long id){
         return taskService.getTaskById(id);
     }
@@ -31,7 +31,10 @@ public class TaskController {
     public List <Task> getAllTask(){
         return taskService.getAllTask();
     }
-
+    @GetMapping("{username}")
+    public List<Task> getTaskByUsername(@PathVariable String username){
+        return taskService.getTaskByUserName(username);
+    }
     @PostMapping
     public Task creatTask(@RequestBody Task task){
         return taskService.createTask(task);

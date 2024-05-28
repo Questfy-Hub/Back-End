@@ -95,7 +95,7 @@ public class UserService {
                 User temp = userRepository.getUserByEmail(login);
                 if(temp != null){
                     if (BCrypt.checkpw(password, temp.getPassword())) {
-                        return new AuthResponse(true, "Autenticado com sucesso");
+                        return new AuthResponse(true, "Autenticado com sucesso", temp.getUsername());
                     }else{
                         return new AuthResponse(false, "Senha Incorreta");
                     }

@@ -37,7 +37,7 @@ public class UserController {
     private UserRepository userRepository;
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public User getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
@@ -45,6 +45,10 @@ public class UserController {
     @GetMapping
     public List <User> getAllUser(){
         return userService.getAllUser();
+    }
+    @GetMapping("/{username}")
+    public User getUserByUsername(@PathVariable String username){
+        return userService.getUserByUsername(username);
     }
 
     @GetMapping("/mail")
@@ -69,10 +73,11 @@ public class UserController {
 
     @PostMapping("/auth")
     public AuthResponse authentication(@RequestBody Map<String, Object> request ){
-        return userService.authentication((String) request.get("login"), (String) request.get("password"));
+        AuthResponse temp = userService.authentication((String) request.get("login"), (String) request.get("password"));
+        return temp;
     }
 
-    //area de teste
+    //region Area de teste
     @GetMapping("/image/{username}")
     public ResponseEntity<Resource> getImage(@PathVariable String username) {
         var temp = userRepository.getUserByUsername(username);
@@ -89,7 +94,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    //region Area de teste
+
     @CrossOrigin("http://localhost:4200")
     @PostMapping("try")
     public void tryteste(@RequestParam String fullname ,@RequestParam String username, @RequestParam String email,
