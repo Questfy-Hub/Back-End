@@ -3,8 +3,10 @@ package com.questifyHub.app.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +18,7 @@ import com.questifyHub.app.Entities.Task;
 import com.questifyHub.app.Services.TaskService;
 @RestController
 @RequestMapping("/task")
+@CrossOrigin("http://localhost:4200")
 public class TaskController {
 
 
@@ -40,7 +43,7 @@ public class TaskController {
         return taskService.createTask(task);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task task){
         return taskService.updateTask(id, task);
     }

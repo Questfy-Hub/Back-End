@@ -60,7 +60,7 @@ public class TaskService {
     @Transactional
     public List<Task> getTaskByUserId(Long userId) {
         User user = userRepository.findById(userId)
-                                  .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         List<Task> tasks = user.getTaskUser();
         return tasks;
     }

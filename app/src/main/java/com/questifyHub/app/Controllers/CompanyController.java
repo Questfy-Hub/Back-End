@@ -33,7 +33,7 @@ public class CompanyController {
         return companyService.creatCompany(company);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Company updateCompany(@PathVariable Long id, @RequestBody Company company){
         return companyService.updateCompany(id, company);
     }
