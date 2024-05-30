@@ -29,6 +29,8 @@ public class User {
     private String role;
     @Column(name = "points")
     private int points;
+    @Column
+    private String gestor;
 
     private byte[] image;
 
@@ -45,7 +47,7 @@ public class User {
     }
 
     public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
-            int points, byte[] image,Company companyUser, List<Task> taskUser) {
+            int points, String gestor ,byte[] image,Company companyUser, List<Task> taskUser) {
         this.id = id;
         this.fullname = fullname;
         this.username = username;
@@ -61,6 +63,7 @@ public class User {
         this.role = role;
         this.points = points;
         this.image = image;
+        this.gestor = gestor;
         this.companyUser = companyUser;
         this.taskUser = taskUser;
     }
