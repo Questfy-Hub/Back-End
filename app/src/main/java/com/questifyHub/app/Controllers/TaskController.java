@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.questifyHub.app.Entities.Task;
@@ -60,4 +61,9 @@ public class TaskController {
         return taskService.getTaskByUserId(id);
     }
 
+    @PostMapping("/{taskCode}/complete")
+    public void completeTask(@RequestParam Long userId, @PathVariable Long taskCode) {
+    taskService.completeTask(userId, taskCode);
+    }
 }
+
