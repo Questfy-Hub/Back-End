@@ -61,8 +61,8 @@ public class TaskController {
         return taskService.getTaskByUserId(id);
     }
 
-    @PostMapping("/{taskCode}/complete")
-    public void completeTask(@RequestParam Long userId, @PathVariable Long taskCode) {
+    @PostMapping("/{userId}/{taskCode}/complete")
+    public void completeTask(@PathVariable Long userId, @PathVariable Long taskCode) {
     taskService.completeTask(userId, taskCode);
     }
 }

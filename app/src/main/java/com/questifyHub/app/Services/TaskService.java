@@ -79,10 +79,10 @@ public class TaskService {
         Task task = taskRepository.findById(taskCode)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
 
-        if (task.getStatusTask().getStatusCode() == 4) {
+        if (task.getStatusTask().getStatusCode() == 5) {
             throw new RuntimeException("Task already completed");
         }
-        Long idStatus = (long) 4;
+        Long idStatus = (long) 5;
         task.setStatusTask(this.statusRepository.findById(idStatus).orElse(null));
         taskRepository.save(task);
 

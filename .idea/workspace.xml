@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/UserTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/UserTaskId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +106,7 @@
       <workItem from="1716900241452" duration="2691000" />
       <workItem from="1716947805906" duration="183000" />
       <workItem from="1717042159947" duration="598000" />
-      <workItem from="1717071046341" duration="6701000" />
+      <workItem from="1717071046341" duration="11222000" />
     </task>
     <servers />
   </component>
