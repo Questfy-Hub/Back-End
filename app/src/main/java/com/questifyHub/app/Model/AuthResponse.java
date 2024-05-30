@@ -4,15 +4,17 @@ public class AuthResponse {
     private boolean success;
     private String message;
     private String userLogged;
+    private int companyId;
     public AuthResponse() {}
     public AuthResponse(boolean success, String message) {
         this.success = success;
         this.message = message;
     }
-    public AuthResponse(boolean success, String message, String userLogged) {
+    public AuthResponse(boolean success, String message, String userLogged, int companyId) {
         this.success = success;
         this.message = message;
         this.userLogged = userLogged;
+        this.companyId = companyId;
     }
 
     public boolean isSuccess() {
@@ -36,6 +38,15 @@ public class AuthResponse {
     public void setUserLogged(String userLogged) {
         this.userLogged = userLogged;
     }
+
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
     @Override
     public String toString() {
         return "AuthResponse{" +

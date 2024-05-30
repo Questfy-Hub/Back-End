@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Model/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Model/AuthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,25 +35,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AppApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Xoris/Desktop/criptografia/criptografia&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.AppApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Xoris/Desktop/Modifing mods",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Xoris\Documents\GitHub\BackEnd\Questify-HUB\app\src\main\resources" />
@@ -105,7 +104,11 @@
       <workItem from="1716740077203" duration="802000" />
       <workItem from="1716807229233" duration="6562000" />
       <workItem from="1716839855851" duration="1671000" />
-      <workItem from="1716852179127" duration="3934000" />
+      <workItem from="1716852179127" duration="4696000" />
+      <workItem from="1716900241452" duration="2691000" />
+      <workItem from="1716947805906" duration="183000" />
+      <workItem from="1717042159947" duration="598000" />
+      <workItem from="1717071046341" duration="3451000" />
     </task>
     <servers />
   </component>
@@ -124,19 +127,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java</url>
-          <line>90</line>
-          <properties class="com.questifyHub.app.Services.UserService" method="authentication">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
