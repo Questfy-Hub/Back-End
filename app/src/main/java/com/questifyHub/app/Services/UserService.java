@@ -1,9 +1,14 @@
 package com.questifyHub.app.Services;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
+import com.questifyHub.app.Entities.Task;
 import com.questifyHub.app.Model.AuthResponse;
+import com.questifyHub.app.Repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
@@ -34,6 +39,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private TaskRepository taskRepository;
 
     // TODO: Atualizar tratamento de excessão
     public User getUserById(Long id) {
@@ -112,6 +120,24 @@ public class UserService {
         }
     }
 
+    //region area de teste
+    public void assignTask(Long id, Long task){
+        //Pega o usuário
+        User temp = this.userRepository.findById(id).orElse(null);
+        //pega as infos da task
+        Task taskTemp = this.taskRepository.findById(task).orElse(null);
+        //coloca task dentro de uma lista
+        List<Task> taskList = new ArrayList<>();
+
+        //setTaskList(taks)
+        taskList.add(taskTemp);
+        temp.setTaskUser(taskList);
+        //Salva usuário
+        this.userRepository.save(temp);
+
+
+    }
+    //endregion
 
 
 }

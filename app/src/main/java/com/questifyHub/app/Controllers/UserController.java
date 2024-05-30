@@ -112,5 +112,10 @@ public class UserController {
         System.out.println(temp);
         userService.createUser(temp);
     }
+
+    @PostMapping("assign/{id}/{taskId}")
+    public void assignUser(@PathVariable Long id, @PathVariable Long taskId){
+        this.userService.assignTask(id, taskId);
+    }
     //endregion
 }

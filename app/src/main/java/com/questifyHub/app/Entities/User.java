@@ -1,5 +1,6 @@
 package com.questifyHub.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.questifyHub.app.Exceptions.InvalidEmailException;
 
 import java.nio.file.Files;
@@ -39,6 +40,7 @@ public class User {
     @JoinColumn(name = "fk_companyCode")
     private Company companyUser;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "User_Set_Task", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_task"))
     private List<Task> taskUser;

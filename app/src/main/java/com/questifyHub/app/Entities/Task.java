@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -30,7 +31,7 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
     private Status statusTask;
-
+    @JsonManagedReference
     @ManyToMany(mappedBy = "taskUser")
     private List<User> userTask;
 
