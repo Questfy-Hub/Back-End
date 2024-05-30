@@ -1,5 +1,8 @@
 package com.questifyHub.app.Services;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -137,6 +140,91 @@ public class UserService {
 
 
     }
+
+    public List<User> getUserRankingThisMonth() {
+        LocalDate startOfMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
+        LocalDateTime start = startOfMonth.atStartOfDay();
+        LocalDateTime end = LocalDateTime.now();
+
+        List<User> users = userRepository.findUsersWithTasksCompletedBetween(start, end);
+        users.forEach(user -> user.setPoints(calculateUserPoints(user)));
+        
+        return quickSort(users);
+    }
+
+    private int calculateUserPoints(User user) {
+        int points = 0;
+        LocalDate startOfMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
+
+        for (Task task : user.getTaskUser()) {
+            if (task.getConclusionDate() != null && task.getConclusionDate().isAfter(startOfMonth)) {
+                points += calculatePoints(task);
+            }
+        }
+        return points;
+    }
+
+    private int calculatePoints(Task task) {
+        int difficulty = task.getDificulty();
+        int points;
+
+        switch (difficulty) {
+            case 1:
+                points = 10;
+                break;
+            case 2:
+                points = 25;
+                break;
+            case 3:
+                points = 50;
+                break;
+            case 5:
+                points = 100;
+                break;
+            case 8:
+                points = 150;
+                break;
+            case 13:
+                points = 250;
+                break;
+            case 21:
+                points = 500;
+                break;
+            default:
+                points = 0;
+        }
+
+        return points;
+    }
+
+    private List<User> quickSort(List<User> users) {
+        if (users.size() <= 1) {
+            return users;
+        }
+        User pivot = users.get(users.size() / 2);
+        List<User> less = new ArrayList<>();
+        List<User> equal = new ArrayList<>();
+        List<User> greater = new ArrayList<>();
+        
+        for (User user : users) {
+            int userPoints = user.getPoints();
+            int pivotPoints = pivot.getPoints();
+            if (userPoints > pivotPoints) {
+                greater.add(user);
+            } else if (userPoints < pivotPoints) {
+                less.add(user);
+            } else {
+                equal.add(user);
+            }
+        }
+        
+        List<User> sorted = new ArrayList<>();
+        sorted.addAll(quickSort(greater));
+        sorted.addAll(equal);
+        sorted.addAll(quickSort(less));
+        return sorted;
+    }
+    
     //endregion
 
 

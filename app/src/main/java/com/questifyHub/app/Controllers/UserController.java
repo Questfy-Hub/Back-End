@@ -117,5 +117,12 @@ public class UserController {
     public void assignUser(@PathVariable Long id, @PathVariable Long taskId){
         this.userService.assignTask(id, taskId);
     }
+
+    @GetMapping("/ranking/this-month")
+    public List<User> getUserRankingThisMonth() {
+        return userService.getUserRankingThisMonth();
+    }
+
+    
     //endregion
 }
