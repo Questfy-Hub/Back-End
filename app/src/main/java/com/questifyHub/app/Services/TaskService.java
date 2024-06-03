@@ -66,13 +66,11 @@ public class TaskService {
     public List<Task> getTaskByUserId(Long userId) {
         User user = userRepository.findById(userId)
                                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-        List<Task> tasks = user.getTaskUser();
-        return tasks;
+        return user.getTaskUser();
     }
     public List<Task> getTaskByUserName(String userName) {
         User temp = userRepository.getUserByUsername(userName);
-        List<Task> tasks = temp.getTaskUser();
-        return tasks;
+        return temp.getTaskUser();
     }
     @Transactional
     public void completeTask(Long userId, Long taskCode) {

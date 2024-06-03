@@ -130,18 +130,17 @@ public class UserService {
         //pega as infos da task
         Task taskTemp = this.taskRepository.findById(task).orElse(null);
         //coloca task dentro de uma lista
-        List<Task> taskList = new ArrayList<>();
-
-        //setTaskList(taks)
-        taskList.add(taskTemp);
-        temp.setTaskUser(taskList);
+//        List<Task> taskList = new ArrayList<>();
+//
+//        //setTaskList(taks)
+//        taskList.add(taskTemp);
+        //temp.setTaskUser(taskList);
+        temp.getTaskUser().add(taskTemp);
         //Salva usuário
         this.userRepository.save(temp);
-
-
     }
 
-    public List<User> getUserRankingThisMonth() {
+   /* public List<User> getUserRankingThisMonth() {
         LocalDate startOfMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
         LocalDateTime start = startOfMonth.atStartOfDay();
         LocalDateTime end = LocalDateTime.now();
@@ -150,7 +149,7 @@ public class UserService {
         users.forEach(user -> user.setPoints(calculateUserPoints(user)));
         
         return quickSort(users);
-    }
+    }*/
 
     private int calculateUserPoints(User user) {
         int points = 0;

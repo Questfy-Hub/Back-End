@@ -7,7 +7,13 @@
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Entities/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +55,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -106,7 +113,10 @@
       <workItem from="1716900241452" duration="2691000" />
       <workItem from="1716947805906" duration="183000" />
       <workItem from="1717042159947" duration="598000" />
-      <workItem from="1717071046341" duration="11222000" />
+      <workItem from="1717071046341" duration="18147000" />
+      <workItem from="1717102286447" duration="1225000" />
+      <workItem from="1717167221717" duration="623000" />
+      <workItem from="1717434696345" duration="1700000" />
     </task>
     <servers />
   </component>
@@ -128,13 +138,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/UserController.java</url>
-          <line>116</line>
-          <properties class="com.questifyHub.app.Controllers.UserController" method="assignUser">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java</url>
+          <line>68</line>
+          <properties class="com.questifyHub.app.Services.UserService" method="createUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

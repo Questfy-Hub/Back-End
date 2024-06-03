@@ -13,8 +13,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User getUserById(Long id);
     User getUserByEmail(String email);
     User getUserByUsername(String username);
-    @Query("SELECT u FROM User u JOIN u.taskUser t WHERE t.completionDate BETWEEN :startDate AND :endDate")
-    List<User> findUsersWithTasksCompletedBetween(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+//    @Query("SELECT u FROM User u JOIN u.taskUser t WHERE t.completionDate BETWEEN :startDate AND :endDate")
+//    List<User> findUsersWithTasksCompletedBetween(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 }
 
 

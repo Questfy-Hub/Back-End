@@ -35,7 +35,7 @@ public class TaskController {
     public List <Task> getAllTask(){
         return taskService.getAllTask();
     }
-    @GetMapping("{username}")
+    @GetMapping("/{username}")
     public List<Task> getTaskByUsername(@PathVariable String username){
         return taskService.getTaskByUserName(username);
     }

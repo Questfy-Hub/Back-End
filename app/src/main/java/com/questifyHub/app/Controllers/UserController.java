@@ -118,10 +118,10 @@ public class UserController {
         this.userService.assignTask(id, taskId);
     }
 
-    @GetMapping("/ranking/this-month")
-    public List<User> getUserRankingThisMonth() {
-        return userService.getUserRankingThisMonth();
-    }
+//    @GetMapping("/ranking/this-month")
+//    public List<User> getUserRankingThisMonth() {
+//        return userService.getUserRankingThisMonth();
+//    }
 
     
     //endregion

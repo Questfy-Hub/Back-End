@@ -27,7 +27,7 @@ public class Task {
     private int dificulty;
     @Column(name = "priority")
     private String priority;
-    @JsonBackReference
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
     private Status statusTask;
