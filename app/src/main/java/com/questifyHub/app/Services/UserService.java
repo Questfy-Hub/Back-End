@@ -130,11 +130,6 @@ public class UserService {
         //pega as infos da task
         Task taskTemp = this.taskRepository.findById(task).orElse(null);
         //coloca task dentro de uma lista
-//        List<Task> taskList = new ArrayList<>();
-//
-//        //setTaskList(taks)
-//        taskList.add(taskTemp);
-        //temp.setTaskUser(taskList);
         temp.getTaskUser().add(taskTemp);
         //Salva usuário
         this.userRepository.save(temp);

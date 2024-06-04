@@ -1,5 +1,7 @@
 package com.questifyHub.app.Services;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +94,68 @@ public class TaskService {
         userRepository.save(user);
     }
 
-    private int calculatePoints(Task task) {
+        public int calculatePoints(Task task) {
+        int dificulty = task.getDificulty();
+        int points;
+
+        switch (dificulty) {
+            case 1:
+                points = 10;
+                // Aplica a redução de pontos para dificuldade 1
+                points = applyReduction(points, task, 0.30, 0.90);
+                break;
+            case 2:
+                points = 25;
+                // Aplica a redução de pontos para dificuldade 2
+                points = applyReduction(points, task, 0.20, 0.80);
+                break;
+            case 3:
+                points = 50;
+                // Aplica a redução de pontos para dificuldade 3
+                points = applyReduction(points, task, 0.10, 0.70);
+                break;
+            case 5:
+                points = 100;
+                // Aplica a redução de pontos para dificuldade 5
+                points = applyReduction(points, task, 0.10, 0.70);
+                break;
+            case 8:
+                points = 150;
+                // Aplica a redução de pontos para dificuldade 8
+                points = applyReduction(points, task, 0.10, 0.70);
+                break;
+            case 13:
+                points = 250;
+                // Aplica a redução de pontos para dificuldade 13
+                points = applyReduction(points, task, 0.10, 0.70);
+                break;
+            case 21:
+                points = 500;
+                // Aplica a redução de pontos para dificuldade 21
+                points = applyReduction(points, task, 0.05, 0.70);
+                break;
+            default:
+                points = 0;
+        }
+
+        return points;
+    }
+
+    private int applyReduction(int points, Task task, double dailyReduction, double maxReduction) {
+        // Calcula a quantidade de dias que passaram após a conclusionDate
+        LocalDate today = LocalDate.now();
+        long daysPast = ChronoUnit.DAYS.between(task.getConclusionDate(), today);
+
+        // Calcula a redução de pontos
+        double reductionFactor = dailyReduction * daysPast;
+        // Limita a redução ao máximo especificado
+        reductionFactor = Math.min(reductionFactor, maxReduction);
+
+        // Aplica a redução nos pontos
+        return (int) (points * (1 - reductionFactor));
+    }
+
+ /*    private int calculatePoints(Task task) {
         int difficulty = task.getDificulty();
         int points;
 
@@ -123,5 +186,5 @@ public class TaskService {
         }
 
         return points;
-    }
+    }*/
 }
