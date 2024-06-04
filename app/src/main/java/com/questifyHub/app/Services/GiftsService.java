@@ -24,7 +24,7 @@ public class GiftsService {
         return giftsRepository.findAll();
     }
     //TODO: Tratamento de Excessão
-    public Gifts creatGifts(Gifts gifts){
+    public Gifts createGifts(Gifts gifts){
         return giftsRepository.save(gifts);
     }
     //TODO: Tratamento de Excessão

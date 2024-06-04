@@ -34,7 +34,7 @@ public class CompanyService {
         return companyRepository.findAll();
     }
     //TODO: Tratamento de Excessão
-    public Company creatCompany(Company company){
+    public Company createCompany(Company company){
         return companyRepository.save(company);
     }
     //TODO: Tratamento de Excessão
