@@ -25,6 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/users")
 @CrossOrigin("http://localhost:4200")
+
+/** Classe que faz o direcionamento das funções da entidade User
+ * 
+ */
 public class UserController {
 
 

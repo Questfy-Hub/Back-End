@@ -21,57 +21,57 @@ import com.questifyHub.app.Services.StatusService;
 @CrossOrigin("http://localhost:4200")
 
 /** Classe que faz o direcionamento das funções da entidade Status (situação das tarefas)
- * 
+ * @author João Paulo Rezende de Oliveira
  */
 public class StatusController {
 
     @Autowired
     private StatusService statusService;
 
-/** Método para fazer a requisição da função getStatusById
- * 
- * @param id
- * @return Objeto da classe Status que recebe id como parâmetro
- */
+    /** Método para fazer a requisição da função getStatusById
+     * 
+     * @param id
+     * @return Objeto da classe Status que recebe id como parâmetro
+     */
     @GetMapping("/{id}")
     public Status getStatusById(@PathVariable Long id){
         return statusService.getStatusById(id);
     }
 
-/** Método para fazer a requisição da função getAllStatus
- * 
- * @return Lista de Objetos da classe Status
- */
+    /** Método para fazer a requisição da função getAllStatus
+     * 
+     * @return Lista de Objetos da classe Status
+     */
     @GetMapping
     public List <Status> getAllStatus(){
         return statusService.getAllStatus();
     }
 
-/** Método para fazer a requisição da função createStatus
- * 
- * @param status
- * @return Objeto da classe Status que recebe status como parâmetro
- */
+    /** Método para fazer a requisição da função createStatus
+     * 
+     * @param status
+     * @return Objeto da classe Status que recebe status como parâmetro
+     */
     @PostMapping
     public Status creatStatus(@RequestBody Status status){
         return statusService.createStatus(status);
     }
 
-/** Método para fazer a requisição da função updateStatus
- * 
- * @param id
- * @param status
- * @return Objeto da classe Status que recebe id e status como parâmetros
- */
+    /** Método para fazer a requisição da função updateStatus
+     * 
+     * @param id
+     * @param status
+     * @return Objeto da classe Status que recebe id e status como parâmetros
+     */
     @PatchMapping("/{id}")
     public Status updateStatus(@PathVariable Long id, @RequestBody Status status){
         return statusService.updateStatus(id, status);
     }
 
-/** Método para fazer a requisição da função deleteStatus
- * 
- * @param id
- */
+    /** Método para fazer a requisição da função deleteStatus
+     * 
+     * @param id
+     */
     @DeleteMapping("/{id}")
     public void deleteStatus(@PathVariable Long id){
         statusService.deleteStatus(id);
