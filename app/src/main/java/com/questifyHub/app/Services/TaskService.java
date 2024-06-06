@@ -58,7 +58,6 @@ public class TaskService {
             task.setEndLineDate(taskDetails.getEndLineDate());
             task.setLongDescription(taskDetails.getLongDescription());
             task.setShortDescription(taskDetails.getShortDescription());
-
         return taskRepository.save(task);
 
     }

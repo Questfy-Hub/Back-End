@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e88eee4-8ad8-4d74-8797-d8fba3851440" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/AppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Controllers/TaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Sort/TaskSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/questifyHub/app/Sort/TaskSort.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,7 @@
       <workItem from="1717543477926" duration="243000" />
       <workItem from="1717592310175" duration="2008000" />
       <workItem from="1717618756417" duration="5000" />
-      <workItem from="1717628934022" duration="3929000" />
+      <workItem from="1717628934022" duration="5995000" />
     </task>
     <servers />
   </component>
