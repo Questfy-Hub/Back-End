@@ -112,6 +112,10 @@ public class TaskController {
         return taskService.getLastTasks(username);
     }
 
+    @GetMapping("/{username}/newest")
+    public List<Task> getNewestTasks(@PathVariable String username){
+        return taskService.getNewestTasks(username);
+    }
     /** Método para fazer a requisição da função completeTask
      * 
      * @param userId
