@@ -2,6 +2,8 @@ package com.questifyHub.app.Controllers;
 
 import java.util.List;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +37,7 @@ public class TaskController {
     public List <Task> getAllTask(){
         return taskService.getAllTask();
     }
+
     @GetMapping("/{username}")
     public List<Task> getTaskByUsername(@PathVariable String username){
         return taskService.getTaskByUserName(username);
@@ -60,6 +63,17 @@ public class TaskController {
     public List<Task> getTaskByUserId(@PathVariable Long id){
         return taskService.getTaskByUserId(id);
     }
+
+
+    @GetMapping("/{username}/sorted")
+    public List<Task> getLastTasks(@PathVariable String username){
+        return taskService.getLastTasks(username);
+    }
+
+
+
+
+
 
     @PostMapping("/{userId}/{taskCode}/complete")
     public void completeTask(@PathVariable Long userId, @PathVariable Long taskCode) {

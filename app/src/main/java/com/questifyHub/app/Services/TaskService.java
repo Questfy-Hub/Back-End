@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+import com.questifyHub.app.Sort.TaskSort;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +30,8 @@ public class TaskService {
     private UserRepository userRepository;
     @Autowired
     private StatusRepository statusRepository;
-
+    @PersistenceContext
+    private EntityManager entityManager;
 
 
     //TODO: Atualizar tratamento de excessão
@@ -74,6 +78,13 @@ public class TaskService {
         User temp = userRepository.getUserByUsername(userName);
         return temp.getTaskUser();
     }
+
+    public List<Task> getLastTasks(String username){
+        return TaskSort.descendentTaskSort(this.getTaskByUserName(username));
+    }
+
+
+
     @Transactional
     public void completeTask(Long userId, Long taskCode) {
         Task task = taskRepository.findById(taskCode)

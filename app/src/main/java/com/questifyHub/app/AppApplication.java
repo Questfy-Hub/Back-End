@@ -3,6 +3,7 @@ package com.questifyHub.app;
 import com.questifyHub.app.Entities.Company;
 import com.questifyHub.app.Entities.User;
 import com.questifyHub.app.Repositories.UserRepository;
+import com.questifyHub.app.Services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,7 +21,6 @@ public class AppApplication {
 	private UserRepository userRepository;
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(AppApplication.class, args);
 	}
 

@@ -1,37 +1,24 @@
 package com.questifyHub.app.Services;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-
 import com.questifyHub.app.Entities.Task;
 import com.questifyHub.app.Model.AuthResponse;
 import com.questifyHub.app.Repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.questifyHub.app.Entities.User;
 import com.questifyHub.app.DTOs.UserDTO;
-
 import com.questifyHub.app.Exceptions.ResourceNotFoundException;
 import com.questifyHub.app.Regex.Regex;
 import com.questifyHub.app.Repositories.UserRepository;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
-
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.multipart.MultipartFile;
+
 
 
 @Service
