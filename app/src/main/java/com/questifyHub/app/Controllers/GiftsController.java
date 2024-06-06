@@ -28,50 +28,50 @@ public class GiftsController {
     @Autowired
     private GiftsService giftsService;
 
-/** Método para fazer a requisição da função getGiftsById
- * 
- * @param id
- * @return Objeto da classe Gifts que recebe id como parâmetro
- */
+    /** Método para fazer a requisição da função getGiftsById
+     * 
+     * @param id
+     * @return Objeto da classe Gifts que recebe id como parâmetro
+     */
     @GetMapping("/{id}")
     public Gifts getGiftsById(@PathVariable Long id){
         return giftsService.getGiftsById(id);
     }
 
-/** Método para fazer a requisição da função getAllGifts
- * 
- * @return Lista de objetos da classe Gifts
- */
+    /** Método para fazer a requisição da função getAllGifts
+     * 
+     * @return Lista de objetos da classe Gifts
+     */
     @GetMapping
     public List <Gifts> getAllGifts(){
         return giftsService.getAllGifts();
     }
 
-/** Método para fazer a requisição da função createGifts
- * 
- * @param gifts
- * @return Objeto da classe Gifts que recebe gifts como parâmetro
- */
+    /** Método para fazer a requisição da função createGifts
+     * 
+     * @param gifts
+     * @return Objeto da classe Gifts que recebe gifts como parâmetro
+     */
     @PostMapping
     public Gifts createGifts(@RequestBody Gifts gifts){
         return giftsService.createGifts(gifts);
     }
 
-/** Método para fazer a requisição da função updadeGifts
- * 
- * @param id
- * @param gifts
- * @return Objeto da classe Gifts que recebe id e gifts como parâmetros
- */
+    /** Método para fazer a requisição da função updadeGifts
+     * 
+     * @param id
+     * @param gifts
+     * @return Objeto da classe Gifts que recebe id e gifts como parâmetros
+     */
     @PatchMapping("/{id}")
     public Gifts updateGifts(@PathVariable Long id, @RequestBody Gifts gifts){
         return giftsService.updateGifts(id, gifts);
     }
 
-/** Método para fazer a requisição da função deleteGifts
- * 
- * @param id
- */
+    /** Método para fazer a requisição da função deleteGifts
+     * 
+     * @param id
+     */
     @DeleteMapping("/{id}")
     public void deleteGifts(@PathVariable Long id){
         giftsService.deleteGifts(id);

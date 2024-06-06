@@ -22,36 +22,69 @@ import com.questifyHub.app.Services.TaskService;
 @RestController
 @RequestMapping("/task")
 @CrossOrigin("http://localhost:4200")
-public class TaskController {
 
+/** Classe que faz o direcionamento das funções da entidade Task (Tarefas)
+ * @author João Paulo Rezende de Oliveira
+ */
+public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
+    /** Método para fazer a requisição da função getTaskById
+    * 
+    * @param id
+    * @return Objeto da classe Task que recebe Id como parâmetro
+    */
     @GetMapping("/id/{id}")
     public Task getTaskById(@PathVariable Long id){
         return taskService.getTaskById(id);
     }
 
+    /** Método para fazer a requisição da função getAllTask
+     * 
+     * @return Lista de objetos da classe Task
+     */
     @GetMapping
     public List <Task> getAllTask(){
         return taskService.getAllTask();
     }
 
+    /** Método para fazer a requisição da função getTaksByUsername
+     * 
+     * @param username
+     * @return Objeto da classe Task que recebe username como parâmetro
+     */
     @GetMapping("/{username}")
     public List<Task> getTaskByUsername(@PathVariable String username){
         return taskService.getTaskByUserName(username);
     }
+
+    /** Método para fazer a requisição da função createTask
+     * 
+     * @param task
+     * @return Objeto da classe Task que recebe task como parâmentro
+     */
     @PostMapping
-    public Task creatTask(@RequestBody Task task){
+    public Task createTask(@RequestBody Task task){
         return taskService.createTask(task);
     }
 
+    /** Método para fazer a requisição da função updateTask
+     * 
+     * @param id
+     * @param task
+     * @return Objeto da classe Task que recebe id e task como parâmetros
+     */
     @PatchMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task task){
         return taskService.updateTask(id, task);
     }
 
+    /** Método para fazer a requisição da função deleteTask
+     * 
+     * @param id
+     */
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){
         taskService.deleteTask(id);
@@ -59,22 +92,31 @@ public class TaskController {
 
     //Area de teste
 
+    /** Método para fazer a requisição da função getTaskById
+     * 
+     * @param id
+     * @return Lista de objetos da classe Task que recebem id como parâmetro
+     */
     @GetMapping("/users/{id}/tasks")
     public List<Task> getTaskByUserId(@PathVariable Long id){
         return taskService.getTaskByUserId(id);
     }
 
-
+    /** Método para fazer a requisição da função getLastTasks
+     * 
+     * @param username
+     * @return Lista de objetos da classe Task que recebem username como parâmetro
+     */
     @GetMapping("/{username}/sorted")
     public List<Task> getLastTasks(@PathVariable String username){
         return taskService.getLastTasks(username);
     }
 
-
-
-
-
-
+    /** Método para fazer a requisição da função completeTask
+     * 
+     * @param userId
+     * @param taskCode
+     */
     @PostMapping("/{userId}/{taskCode}/complete")
     public void completeTask(@PathVariable Long userId, @PathVariable Long taskCode) {
     taskService.completeTask(userId, taskCode);
