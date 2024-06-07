@@ -1,18 +1,24 @@
 package com.questifyHub.app.Entities;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+
+
+/** Classe Company onde é gerado a entidade Company (empresa)
+ * @author João Paulo Rezende de Oliveira
+ */
 @Entity
 @Table(name="company")
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int companyCode;
+
     @Column(name="companyName", unique = true)
     private String companyName;
+
     @Column(name="cnpj")
     private String cnpj;
 
@@ -28,7 +34,7 @@ public class Company {
     public Company(){}
 
 
-    /**
+    /** Constructor da entidade Company
      * @param companyCode
      * @param companyName
      * @param cnpj

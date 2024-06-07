@@ -1,19 +1,23 @@
 package com.questifyHub.app.Entities;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+/** Classe Company onde é gerado a entidade Status
+ * @author João Paulo Rezende de Oliveira
+ */
 @Entity
 @Table(name="status")
 public class Status {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int statusCode;
+
     @Column(name = "description")
     private String description;
+
     @Column(name ="statusName")
     private String statusName;
 
@@ -23,6 +27,15 @@ public class Status {
 
 
     public Status(){}
+
+
+    /** Constructor da entidade Status
+     * 
+     * @param statusCode
+     * @param description
+     * @param statusName
+     * @param taskList
+     */
     public Status(int statusCode, String description, String statusName, List<Task> taskList) {
         this.statusCode = statusCode;
         this.description = description;

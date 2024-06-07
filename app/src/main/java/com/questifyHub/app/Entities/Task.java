@@ -2,40 +2,67 @@ package com.questifyHub.app.Entities;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+/** Classe Company onde é gerado a entidade Task (tarefas)
+ * @author João Paulo Rezende de Oliveira
+ */
 @Entity
 @Table(name = "task")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int taskCode;
+
     @Column(name = "shortDescription")
     private String shortDescription;
+
     @Column(name = "longDescription")
     private String longDescription;
+
     @Column(name  = "initialDate")
     private LocalDate initialDate;
+
     @Column(name = "conclusionDate")
     private LocalDate conclusionDate;
+
     @Column(name = "endLineDate")
     private LocalDate endLineDate;
+
     @Column(name = "dificulty")
     private int dificulty;
+
     @Column(name = "priority")
     private String priority;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
     private Status statusTask;
+
     @JsonManagedReference
     @ManyToMany(mappedBy = "taskUser")
     private List<User> userTask;
 
+
     public Task(){}
+
+
+    /** Constructor da entidade Task
+     * 
+     * @param taskCode
+     * @param shortDescription
+     * @param longDescription
+     * @param initialDate
+     * @param conclusionDate
+     * @param endLineDate
+     * @param dificulty
+     * @param priority
+     * @param statusTask
+     * @param userTask
+     */
     public Task(int taskCode, String shortDescription, String longDescription, LocalDate initialDate,
             LocalDate conclusionDate, LocalDate endLineDate, int dificulty,String priority, Status statusTask, List<User> userTask) {
         this.taskCode = taskCode;
@@ -49,7 +76,6 @@ public class Task {
         this.statusTask = statusTask;
         this.userTask = userTask;
     }
-
 
 
     public int getTaskCode() {
@@ -107,12 +133,15 @@ public class Task {
     public void setDificulty(int dificulty) {
         this.dificulty = dificulty;
     }
+
     public String getPriority() {
         return priority;
     }
+
     public void setPriority(String priority) {
         this.priority = priority;
     }
+
     public List<User> getUserTask() {
         return userTask;
     }
@@ -120,9 +149,11 @@ public class Task {
     public void setUserTask(List<User> userTask) {
         this.userTask = userTask;
     }
+
     public Status getStatusTask() {
         return statusTask;
     }
+    
     public void setStatusTask(Status statusTask) {
         this.statusTask = statusTask;
     }

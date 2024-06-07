@@ -1,11 +1,9 @@
 package com.questifyHub.app.Controllers;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.questifyHub.app.DTOs.CompanyDTO;
 import com.questifyHub.app.Entities.Company;
 import com.questifyHub.app.Services.CompanyService;

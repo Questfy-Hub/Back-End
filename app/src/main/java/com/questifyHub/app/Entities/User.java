@@ -2,7 +2,6 @@ package com.questifyHub.app.Entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.questifyHub.app.Exceptions.InvalidEmailException;
-
 import java.nio.file.Files;
 import java.util.List;
 import com.questifyHub.app.Regex.Regex;
@@ -10,30 +9,44 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.io.File;
 
+/** Classe Company onde é gerado a entidade Users
+ * @author João Paulo Rezende de Oliveira
+ */
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "fullname")
     private String fullname;
+
     @Column(name = "username", unique = true)
     private String username;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "cpf")
     private String cpf;
+
     @Column(name = "role")
     private String role;
+
     @Column(name = "points")
     private int points;
+
     @Column
     private String gestor;
 
+
     private byte[] image;
+
+
 
     @JsonBackReference
     @ManyToOne
@@ -45,9 +58,25 @@ public class User {
     @JoinTable(name = "User_Set_Task", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_task"))
     private List<Task> taskUser;
 
-    public User() {
-    }
 
+    public User() {}
+
+
+    /** Constructor da entidade User //! pq tem 3?
+     * 
+     * @param id
+     * @param fullname
+     * @param username
+     * @param password
+     * @param email
+     * @param cpf
+     * @param role
+     * @param points
+     * @param gestor
+     * @param image
+     * @param companyUser
+     * @param taskUser
+     */
     public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
             int points, String gestor ,byte[] image,Company companyUser, List<Task> taskUser) {
         this.id = id;
@@ -69,7 +98,7 @@ public class User {
         this.companyUser = companyUser;
         this.taskUser = taskUser;
     }
-
+    
     public User(String fullname, String username, String email, String cpf, String role, String password, Company company) {
         this.fullname = fullname;
         this.username = username;
