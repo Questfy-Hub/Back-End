@@ -20,9 +20,9 @@ public class TaskSort {
                 if (task.getStatusTask().getStatusCode() != 4 && task.getStatusTask().getStatusCode() != 5 ){
                     LocalDate date = task.getInitialDate();
                     LocalDate pivotDate = pivot.getInitialDate();
-                    if (date.isBefore(pivotDate)) {
+                    if (pivotDate.isBefore(date)) {
                         greater.add(task);
-                    }else if (date.isAfter(pivotDate)) {
+                    }else if (pivotDate.isAfter(date)) {
                         less.add(task);
                     }else{
                         equal.add(task);

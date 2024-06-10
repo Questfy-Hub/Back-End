@@ -156,14 +156,13 @@ public class TaskService {
 
     private int applyReduction(int points, Task task, double dailyReduction, double maxReduction) {
         // Calcula a quantidade de dias que passaram após a conclusionDate
-        LocalDate today = LocalDate.now();
-        long daysPast = ChronoUnit.DAYS.between(task.getConclusionDate(), today);
+        LocalDate endLineDate = task.getEndLineDate();
+        long daysPast = ChronoUnit.DAYS.between(task.getConclusionDate(), endLineDate);
 
         // Calcula a redução de pontos
-        double reductionFactor = dailyReduction * daysPast;
+        double reductionFactor = dailyReduction * (daysPast * -1);
         // Limita a redução ao máximo especificado
         reductionFactor = Math.min(reductionFactor, maxReduction);
-
         // Aplica a redução nos pontos
         return (int) (points * (1 - reductionFactor));
     }
