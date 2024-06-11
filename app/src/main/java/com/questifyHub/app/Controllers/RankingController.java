@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ranking")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
 
 /** Classe que faz o direcionamento das funções da entidade Ranking
  * @author João Paulo Rezende de Oliveira

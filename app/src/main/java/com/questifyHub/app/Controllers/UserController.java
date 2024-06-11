@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
 
 /** Classe que faz o direcionamento das funções da entidade User
  * @author João Paulo Rezende de Oliveira

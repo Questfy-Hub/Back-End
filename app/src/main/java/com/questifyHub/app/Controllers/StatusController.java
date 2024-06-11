@@ -18,7 +18,7 @@ import com.questifyHub.app.Entities.Status;
 import com.questifyHub.app.Services.StatusService;
 @RestController
 @RequestMapping("/status")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
 
 /** Classe que faz o direcionamento das funções da entidade Status (situação das tarefas)
  * @author João Paulo Rezende de Oliveira

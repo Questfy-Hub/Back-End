@@ -22,7 +22,7 @@ import com.questifyHub.app.Entities.Task;
 import com.questifyHub.app.Services.TaskService;
 @RestController
 @RequestMapping("/task")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
 
 /** Classe que faz o direcionamento das funções da entidade Task (Tarefas)
  * @author João Paulo Rezende de Oliveira

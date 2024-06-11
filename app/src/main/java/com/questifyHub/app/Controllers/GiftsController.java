@@ -17,7 +17,7 @@ import com.questifyHub.app.Entities.Gifts;
 import com.questifyHub.app.Services.GiftsService;
 @RestController
 @RequestMapping("/gifts")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
 
 /** Classe que faz o direcionamento das funções da entidade Gifts (Itens resgatáveis na loja de pontos)
  * @author João Paulo Rezende de Oliveira
