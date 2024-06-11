@@ -122,10 +122,13 @@ public class TaskService {
             throw new ResourceNotFoundException("Usuário não encontrado com o username " + username);
         }
 
+        int currentYear = LocalDate.now().getYear();
         List<Task> tasksForMonth = new ArrayList<>();
 
         for (Task task : user.getTaskUser()) {
-            if (task.getEndLineDate() != null && task.getEndLineDate().getMonthValue() == month) {
+            if (task.getEndLineDate() != null &&
+                task.getEndLineDate().getMonthValue() == month &&
+                task.getEndLineDate().getYear() == currentYear) {
                 tasksForMonth.add(task);
             }
         }
