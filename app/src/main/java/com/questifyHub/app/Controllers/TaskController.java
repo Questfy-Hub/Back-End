@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -124,6 +125,12 @@ public class TaskController {
     @PostMapping("/{userId}/{taskCode}/complete")
     public void completeTask(@PathVariable Long userId, @PathVariable Long taskCode) {
     taskService.completeTask(userId, taskCode);
+    }
+
+    @GetMapping("/user/{username}/month/{month}")
+    public ResponseEntity<List<Task>> getTasksByUserForMonth(@PathVariable String username, @PathVariable int month) {
+        List<Task> tasks = taskService.getTaskByUserNameForMonth(username, month);
+        return ResponseEntity.ok(tasks);
     }
 }
 

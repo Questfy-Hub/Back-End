@@ -2,6 +2,7 @@ package com.questifyHub.app.Services;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.questifyHub.app.Sort.TaskSort;
@@ -50,17 +51,53 @@ public class TaskService {
         return taskRepository.save(task);
     }
     //TODO: Atualizar tratamento de excessão
-    public Task updateTask(Long id, Task taskDetails){
-        Task task = taskRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada com o id"+id));
-            task.setDificulty(taskDetails.getDificulty());
-            task.setInitialDate(taskDetails.getInitialDate());
-            task.setEndLineDate(taskDetails.getEndLineDate());
-            task.setLongDescription(taskDetails.getLongDescription());
-            task.setShortDescription(taskDetails.getShortDescription());
-        return taskRepository.save(task);
 
+    public Task updateTask(Long id, Task taskDetails) {
+        Task task = taskRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada com o id " + id));
+
+        if (taskDetails.getDificulty() != 0) {
+            task.setDificulty(taskDetails.getDificulty());
+        }
+        if (taskDetails.getInitialDate() != null) {
+            task.setInitialDate(taskDetails.getInitialDate());
+        }
+        if (taskDetails.getEndLineDate() != null) {
+            task.setEndLineDate(taskDetails.getEndLineDate());
+        }
+        if (taskDetails.getLongDescription() != null) {
+            task.setLongDescription(taskDetails.getLongDescription());
+        }
+        if (taskDetails.getShortDescription() != null) {
+            task.setShortDescription(taskDetails.getShortDescription());
+        }
+        if (taskDetails.getConclusionDate() != null) {
+            task.setConclusionDate(taskDetails.getConclusionDate());
+        }
+        if (taskDetails.getPriority() != null) {
+            task.setPriority(taskDetails.getPriority());
+        }
+        if (taskDetails.getStatusTask() != null) {
+            task.setStatusTask(taskDetails.getStatusTask());
+        }
+        if (taskDetails.getUserTask() != null && !taskDetails.getUserTask().isEmpty()) {
+            task.setUserTask(taskDetails.getUserTask());
+        }
+
+        return taskRepository.save(task);
     }
+
+//    public Task updateTask(Long id, Task taskDetails){
+//        Task task = taskRepository.findById(id)
+//            .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada com o id"+id));
+//           task.setDificulty(taskDetails.getDificulty());
+//            task.setInitialDate(taskDetails.getInitialDate());
+//            task.setEndLineDate(taskDetails.getEndLineDate());
+//            task.setLongDescription(taskDetails.getLongDescription());
+//            task.setShortDescription(taskDetails.getShortDescription());
+//        return taskRepository.save(task);
+//
+//    }
     //TODO: Tratamento de Excessão
     public void deleteTask(Long id){
         taskRepository.deleteById(id);   
@@ -76,6 +113,24 @@ public class TaskService {
     public List<Task> getTaskByUserName(String userName) {
         User temp = userRepository.getUserByUsername(userName);
         return temp.getTaskUser();
+    }
+
+    @Transactional
+    public List<Task> getTaskByUserNameForMonth(String username, int month) {
+        User user = userRepository.getUserByUsername(username);
+        if (user == null) {
+            throw new ResourceNotFoundException("Usuário não encontrado com o username " + username);
+        }
+
+        List<Task> tasksForMonth = new ArrayList<>();
+
+        for (Task task : user.getTaskUser()) {
+            if (task.getEndLineDate() != null && task.getEndLineDate().getMonthValue() == month) {
+                tasksForMonth.add(task);
+            }
+        }
+
+        return tasksForMonth;
     }
 
     public List<Task> getLastTasks(String username){
