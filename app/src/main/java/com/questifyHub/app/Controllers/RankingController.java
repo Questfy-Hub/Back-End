@@ -1,6 +1,7 @@
 package com.questifyHub.app.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ranking")
+@CrossOrigin("http://localhost:4200")
 
 /** Classe que faz o direcionamento das funções da entidade Ranking
  * @author João Paulo Rezende de Oliveira

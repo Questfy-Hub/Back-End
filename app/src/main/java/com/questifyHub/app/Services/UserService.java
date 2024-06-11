@@ -80,10 +80,15 @@ public class UserService {
     }
 
     public List<UserDTO> getAllJustUsers() {
-        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs.UserDTO(u.username, u.email, u.role, u.points) from User u");
+        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs.UserDTO(u.username, u.email, u.role, u.points) from User u ");
         return query.getResultList();
     }
-
+    public List<UserDTO> getUsersByGestor(String gestor){
+        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs.UserDTO(u.fullname, u.username, u.points, u.email, u.role) " +
+                "from User u where u.gestor = :gestor");
+        query.setParameter("gestor", gestor);
+        return query.getResultList();
+    }
 
 
     public AuthResponse authentication(String login, String password) {

@@ -81,6 +81,7 @@ public class TaskService {
     public List<Task> getLastTasks(String username){
         return TaskSort.descendentTaskSort(this.getTaskByUserName(username));
     }
+
     public List<Task> getNewestTasks(String username){
         return TaskSort.sort(this.getTaskByUserName(username));
     }

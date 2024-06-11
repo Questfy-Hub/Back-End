@@ -24,6 +24,14 @@ public class UserDTO {
         this.points = points;
     }
 
+    public UserDTO(String fullname, String username, int points, String email, String role){
+        this.fullname = fullname;
+        this.username = username;
+        this.email = email;
+        this.points = points;
+        this.role = role;
+    }
+
     public UserDTO(Long id, String fullname, String username, String password, String email, String cpf, String role,
                    int points, byte[] image) {
         this.id = id;

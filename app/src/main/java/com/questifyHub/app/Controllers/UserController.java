@@ -40,6 +40,11 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping("/by/gestor")
+    public List<UserDTO> getUsersByGestor(@RequestParam String gestor) {
+        return userService.getUsersByGestor(gestor);
+    }
+
     /** Método para fazer a requisição da função getUserById
      * 
      * @param id

@@ -62,7 +62,7 @@ public class User {
     public User() {}
 
 
-    /** Constructor da entidade User //! pq tem 3?
+    /** Constructor da entidade User
      * 
      * @param id
      * @param fullname
