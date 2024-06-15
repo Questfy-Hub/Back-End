@@ -1,7 +1,14 @@
 package com.questifyHub.app.DTOs;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
+/**
+ * classe UserDTO para transporte dos dados do objeto User para melhor
+ * visualização
+ * 
+ */
 public class UserDTO {
     private Long id;
     private String fullname;
@@ -13,10 +20,21 @@ public class UserDTO {
     private int points;
     private byte[] image;
 
-
+    /**
+     * Constructor Vazio
+     * 
+     */
     public UserDTO() {
     }
 
+    /**
+     * Contructor do DTO de usuários
+     * 
+     * @param username
+     * @param email
+     * @param role
+     * @param points
+     */
     public UserDTO(String username, String email, String role, int points) {
         this.username = username;
         this.email = email;
@@ -24,7 +42,16 @@ public class UserDTO {
         this.points = points;
     }
 
-    public UserDTO(String fullname, String username, int points, String email, String role){
+    /**
+     * Constructor do DTO de usuários
+     * 
+     * @param fullname
+     * @param username
+     * @param points
+     * @param email
+     * @param role
+     */
+    public UserDTO(String fullname, String username, int points, String email, String role) {
         this.fullname = fullname;
         this.username = username;
         this.email = email;
@@ -32,8 +59,21 @@ public class UserDTO {
         this.role = role;
     }
 
+    /**
+     * Constructor do DTO de usuários
+     * 
+     * @param id
+     * @param fullname
+     * @param username
+     * @param password
+     * @param email
+     * @param cpf
+     * @param role
+     * @param points
+     * @param image
+     */
     public UserDTO(Long id, String fullname, String username, String password, String email, String cpf, String role,
-                   int points, byte[] image) {
+            int points, byte[] image) {
         this.id = id;
         this.fullname = fullname;
         this.username = username;
@@ -46,6 +86,7 @@ public class UserDTO {
 
     }
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -118,5 +159,4 @@ public class UserDTO {
         this.image = image;
     }
 
-    
 }

@@ -6,7 +6,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que abriga função de ordenação da classe Task
+ */
 public class TaskSort {
+
+    /**
+     * Função QuickSort para ordenação crescente por data inicial das tarefas
+     * @param tasks Lista de tarefas a ser ordenada
+     * @return Lista ordenada
+     */
     public static List<Task> sort(List<Task> tasks) {
         if (tasks.size() <= 1){
             return tasks;
@@ -37,6 +46,12 @@ public class TaskSort {
         return sorted;
 
     }
+
+
+    /**Função para ordenar a classe Task por data final em ordem decrescente
+     * @param tasks Lista de tarefas a ser ordenada
+     * @return Lista ordenada
+     */
     public static List<Task> descendentTaskSort(List<Task> tasks) {
 
         if (tasks.size() <= 1) {

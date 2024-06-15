@@ -28,6 +28,9 @@ public class Gifts {
     private Company companyGifts;
 
 
+    /** Constructor Vazio
+     * 
+     */
     public Gifts(){}
 
 
@@ -47,8 +50,7 @@ public class Gifts {
         this.companyGifts = companyGifts;
     }
 
-
-
+    //Getters e Setters
     public int getGiftCode() {
         return giftCode;
     }

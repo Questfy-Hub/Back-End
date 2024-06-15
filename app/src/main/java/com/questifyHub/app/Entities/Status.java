@@ -2,34 +2,39 @@ package com.questifyHub.app.Entities;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-/** Classe Company onde é gerado a entidade Status
+/**
+ * Classe Company onde é gerado a entidade Status
+ * 
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
-@Table(name="status")
+@Table(name = "status")
 public class Status {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int statusCode;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name ="statusName")
+    @Column(name = "statusName")
     private String statusName;
 
     @JsonBackReference
     @OneToMany(mappedBy = "statusTask")
     private List<Task> taskList;
 
+    /**
+     * Constructor Vazio
+     * 
+     */
+    public Status() {
+    }
 
-    public Status(){}
-
-
-    /** Constructor da entidade Status
+    /**
+     * Constructor da entidade Status
      * 
      * @param statusCode
      * @param description
@@ -42,7 +47,6 @@ public class Status {
         this.statusName = statusName;
         this.taskList = taskList;
     }
-
 
     public int getStatusCode() {
         return statusCode;
@@ -75,5 +79,5 @@ public class Status {
     public void setTaskList(List<Task> taskList) {
         this.taskList = taskList;
     }
-  
+
 }

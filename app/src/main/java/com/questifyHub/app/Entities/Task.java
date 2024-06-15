@@ -2,11 +2,12 @@ package com.questifyHub.app.Entities;
 
 import java.time.LocalDate;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-/** Classe Company onde é gerado a entidade Task (tarefas)
+/**
+ * Classe Company onde é gerado a entidade Task (tarefas)
+ * 
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
@@ -22,7 +23,7 @@ public class Task {
     @Column(name = "longDescription")
     private String longDescription;
 
-    @Column(name  = "initialDate")
+    @Column(name = "initialDate")
     private LocalDate initialDate;
 
     @Column(name = "conclusionDate")
@@ -46,11 +47,15 @@ public class Task {
     @ManyToMany(mappedBy = "taskUser")
     private List<User> userTask;
 
+    /**
+     * Constructor Vazio
+     * 
+     */
+    public Task() {
+    }
 
-    public Task(){}
-
-
-    /** Constructor da entidade Task
+    /**
+     * Constructor da entidade Task
      * 
      * @param taskCode
      * @param shortDescription
@@ -64,7 +69,8 @@ public class Task {
      * @param userTask
      */
     public Task(int taskCode, String shortDescription, String longDescription, LocalDate initialDate,
-            LocalDate conclusionDate, LocalDate endLineDate, int dificulty,String priority, Status statusTask, List<User> userTask) {
+            LocalDate conclusionDate, LocalDate endLineDate, int dificulty, String priority, Status statusTask,
+            List<User> userTask) {
         this.taskCode = taskCode;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -77,7 +83,7 @@ public class Task {
         this.userTask = userTask;
     }
 
-
+    // Getters e Setters
     public int getTaskCode() {
         return taskCode;
     }
@@ -153,7 +159,7 @@ public class Task {
     public Status getStatusTask() {
         return statusTask;
     }
-    
+
     public void setStatusTask(Status statusTask) {
         this.statusTask = statusTask;
     }

@@ -4,8 +4,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-
-
 /** Classe Company onde é gerado a entidade Company (empresa)
  * @author João Paulo Rezende de Oliveira
  */
@@ -51,7 +49,7 @@ public class Company {
     }
 
 
-
+    //Getters e Setters
     public int getCompanyCode() {
         return companyCode;
     }

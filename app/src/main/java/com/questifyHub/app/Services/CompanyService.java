@@ -1,7 +1,6 @@
 package com.questifyHub.app.Services;
 
 import java.util.List;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -12,35 +11,54 @@ import com.questifyHub.app.DTOs.CompanyDTO;
 import com.questifyHub.app.Exceptions.ResourceNotFoundException;
 import com.questifyHub.app.Repositories.CompanyRepository;
 
-
-
+/**
+ * Classe CompanyService que possui a logica das funcionalidades do objeto company (empresa)
+ */
 @Service
 public class CompanyService {
 
-    
-    
     @Autowired
     private CompanyRepository companyRepository;
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Company getCompanyById(Long id){
+    /** Método para requisitar as informações do objeto Company pelo Id
+     *  
+     * @param id
+     * @return Objeto da classe Company
+     */
+    public Company getCompanyById(Long id) {
         return companyRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada com o id"+id));
+                .orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada com o id" + id));
 
     }
-    //TODO: Tratamento de Excessão
-    public List<Company> getAllCompanies(){
+
+    /**
+     * Método para requisitar uma lista de todas as empresas (Company)
+     * @return Lista de todas as empresas
+     */
+    public List<Company> getAllCompanies() {
         return companyRepository.findAll();
     }
-    //TODO: Tratamento de Excessão
-    public Company createCompany(Company company){
+
+    /**
+     * Método para criar a empresa (company)
+     * @param company
+     * @return Objeto company
+     */
+    public Company createCompany(Company company) {
         return companyRepository.save(company);
     }
-    //TODO: Tratamento de Excessão
-    public Company updateCompany(Long id, Company companyDetails){
+
+    /**
+     * Método para alterar as informações de uma empresa (company)
+     * @param id
+     * @param companyDetails
+     * @return Objeto company com as modificações inseridas
+     */
+    public Company updateCompany(Long id, Company companyDetails) {
         Company company = companyRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada com o id"+id));
+                .orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada com o id" + id));
 
         company.setCompanyName(companyDetails.getCompanyName());
         company.setCnpj(companyDetails.getCnpj());
@@ -48,18 +66,22 @@ public class CompanyService {
         return companyRepository.save(company);
 
     }
-    //TODO: Tratamento de Excessão
-    public void deleteCompany(Long id){
+
+    /**
+     * Método para deletar o cadastro de uma empresa (company)
+     * @param id
+     */
+    public void deleteCompany(Long id) {
         companyRepository.deleteById(id);
     }
 
-    /*
-    Arruma dps otario!
-
-    Ta arrumado bbk
+    /**
+     * Método para requisitar todas as informações da classe CompanyDTO
+     * @return Lista de objetos do DTO
      */
-    public List<CompanyDTO> getOnlyCompany(){
-        Query query = entityManager.createQuery("select new com.questifyHub.app.DTOs.CompanyDTO(c.companyCode, c.companyName, c.cnpj) from Company c");
+    public List<CompanyDTO> getOnlyCompany() {
+        Query query = entityManager.createQuery(
+                "select new com.questifyHub.app.DTOs.CompanyDTO(c.companyCode, c.companyName, c.cnpj) from Company c");
         return query.getResultList();
     }
 }

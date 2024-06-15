@@ -1,15 +1,14 @@
 package com.questifyHub.app.Entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.questifyHub.app.Exceptions.InvalidEmailException;
-import java.nio.file.Files;
 import java.util.List;
 import com.questifyHub.app.Regex.Regex;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import java.io.File;
 
-/** Classe Company onde é gerado a entidade Users
+/**
+ * Classe Company onde é gerado a entidade Users
+ * 
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
@@ -43,10 +42,11 @@ public class User {
     @Column
     private String gestor;
 
-
+    /**
+     * Constructor Vazio
+     * 
+     */
     private byte[] image;
-
-
 
     @JsonBackReference
     @ManyToOne
@@ -58,11 +58,15 @@ public class User {
     @JoinTable(name = "User_Set_Task", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_task"))
     private List<Task> taskUser;
 
+    /**
+     * Constructor vazio
+     * 
+     */
+    public User() {
+    }
 
-    public User() {}
-
-
-    /** Constructor da entidade User
+    /**
+     * Constructor da entidade User
      * 
      * @param id
      * @param fullname
@@ -78,7 +82,7 @@ public class User {
      * @param taskUser
      */
     public User(Long id, String fullname, String username, String password, String email, String cpf, String role,
-            int points, String gestor ,byte[] image,Company companyUser, List<Task> taskUser) {
+            int points, String gestor, byte[] image, Company companyUser, List<Task> taskUser) {
         this.id = id;
         this.fullname = fullname;
         this.username = username;
@@ -98,8 +102,20 @@ public class User {
         this.companyUser = companyUser;
         this.taskUser = taskUser;
     }
-    
-    public User(String fullname, String username, String email, String cpf, String role, String password, Company company) {
+
+    /**
+     * Constructor da entidade User
+     * 
+     * @param fullname
+     * @param username
+     * @param email
+     * @param cpf
+     * @param role
+     * @param password
+     * @param company
+     */
+    public User(String fullname, String username, String email, String cpf, String role, String password,
+            Company company) {
         this.fullname = fullname;
         this.username = username;
         this.email = email;
@@ -109,7 +125,20 @@ public class User {
         this.companyUser = company;
     }
 
-    public User(String fullname, String username, String email, String cpf, String role, String password, byte[] bytes, Company companyUser) {
+    /**
+     * Constructor da entidade User
+     * 
+     * @param fullname
+     * @param username
+     * @param email
+     * @param cpf
+     * @param role
+     * @param password
+     * @param bytes
+     * @param companyUser
+     */
+    public User(String fullname, String username, String email, String cpf, String role, String password, byte[] bytes,
+            Company companyUser) {
         this.fullname = fullname;
         this.username = username;
         this.email = email;
@@ -120,6 +149,7 @@ public class User {
         this.companyUser = companyUser;
     }
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -180,9 +210,13 @@ public class User {
         this.points = points;
     }
 
-  public byte[] getImage() {return image;}
+    public byte[] getImage() {
+        return image;
+    }
 
-   public void setImage(byte[] image) {this.image = image;}
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public void setId(Long id) {
         this.id = id;

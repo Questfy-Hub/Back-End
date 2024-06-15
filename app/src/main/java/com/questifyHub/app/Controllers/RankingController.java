@@ -9,21 +9,25 @@ import com.questifyHub.app.Entities.User;
 import com.questifyHub.app.Services.RankingService;
 import java.util.List;
 
-@RestController
-@RequestMapping("/ranking")
-@CrossOrigin({"http://localhost:4200", "https://questfyhub.netlify.app/"})
-
-/** Classe que faz o direcionamento das funções da entidade Ranking
+/**
+ * Classe que faz o direcionamento das funções da entidade Ranking
+ * 
  * @author João Paulo Rezende de Oliveira
  */
+@RestController
+@RequestMapping("/ranking")
+@CrossOrigin({ "http://localhost:4200", "https://questfyhub.netlify.app/" })
+
 public class RankingController {
 
     @Autowired
     private RankingService rankingService;
 
-    /** Método para fazer a requisição da função getMonthlyRanking
+    /**
+     * Método para fazer a requisição da função getMonthlyRanking
      * 
-     * @return Lista de objetos //! O que retorna?
+     * @return Lista de objetos de usuários ordenada em ordem decrescente em relação
+     *         ao seus pontos mensais
      */
     @GetMapping("/monthly")
     public List<User> getMonthlyRanking() {

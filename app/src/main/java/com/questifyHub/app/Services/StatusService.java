@@ -13,22 +13,40 @@ public class StatusService {
     
     @Autowired
     private StatusRepository statusRepository;
-    //TODO: Atualizar tratamento de excessão
+
+    /**
+     * Método para pegar Status pelo ID
+     * @param id Id do Status
+     * @return Objeto Status
+     */
     public Status getStatusById(Long id){
         return statusRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Status não encontrado com o id"+id));
 
     }
-    //TODO: Tratamento de Excessão
+
+    /**
+     * Método para buscar todos os tipos de Status
+     * @return Lista de Status
+     */
     public List<Status> getAllStatus(){
         return statusRepository.findAll();
             
     }
-    //TODO: Tratamento de Excessão
+    /**
+     * Método para criar Status
+     * @param status Status a ser criado
+     * @return Objeto Status criado
+     */
     public Status createStatus(Status status){
         return statusRepository.save(status);
     }
-    //TODO: Atualizar tratamento de excessão
+
+    /**
+     * Método para atualizar informações dos Status
+     * @param id,statusDetails Id do Status e informações a ser atualizado
+     * @return Objeto Status atualizado
+     */
     public Status updateStatus(Long id, Status statusDetails){
         Status status = statusRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Status não encontrado com o id"+id));
@@ -39,7 +57,10 @@ public class StatusService {
         return statusRepository.save(status);
 
     }
-    //TODO: Tratamento de Excessão
+    /**
+     * Método para deletar um status
+     * @param id Id do Status a ser deletado
+     */
     public void deleteStatus(Long id){
         statusRepository.deleteById(id);   
     }
