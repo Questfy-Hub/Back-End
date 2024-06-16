@@ -196,16 +196,13 @@ public class UserController {
         this.userService.assignTask(id, taskId);
     }
 
-    // region Area de teste
-    /**
-     * //! ?
+    /** Método para fazer a requisição do userDTO
      * 
-     * @return
+     * @return Retorna uma resposta http
      */
     @GetMapping("/teste")
     public ResponseEntity<List<UserDTO>> getSimpleUser() {
         List<UserDTO> users = userService.getAllJustUsers();
         return ResponseEntity.ok(users);
     }
-    // endregion
 }

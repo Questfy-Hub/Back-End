@@ -256,21 +256,4 @@ public class UserService {
         sorted.addAll(quickSort(less));
         return sorted;
     }
-
-
-        /*
-     * public List<User> getUserRankingThisMonth() {
-     * LocalDate startOfMonth =
-     * LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
-     * LocalDateTime start = startOfMonth.atStartOfDay();
-     * LocalDateTime end = LocalDateTime.now();
-     * 
-     * List<User> users = userRepository.findUsersWithTasksCompletedBetween(start,
-     * end);
-     * users.forEach(user -> user.setPoints(calculateUserPoints(user)));
-     * 
-     * return quickSort(users);
-     * }
-     */
-
 }

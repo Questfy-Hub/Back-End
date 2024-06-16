@@ -79,7 +79,7 @@ public class CompanyController {
     /**
      * Método para fazer a requisição da função getSimpleCompany
      * 
-     * @return Objeto da classe Company que recebe companies como parâmetro
+     * @return Retorna uma resposta http
      */
     @GetMapping("/teste")
     public ResponseEntity<List<CompanyDTO>> getSimpleCompany() {

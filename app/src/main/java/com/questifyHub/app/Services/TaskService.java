@@ -296,39 +296,4 @@ public class TaskService {
         // Aplica a redução nos pontos
         return (int) (points * (1 - reductionFactor));
     }
-
-    /*
-     * private int calculatePoints(Task task) {
-     * int difficulty = task.getDificulty();
-     * int points;
-     * 
-     * switch (difficulty) {
-     * case 1:
-     * points = 10;
-     * break;
-     * case 2:
-     * points = 25;
-     * break;
-     * case 3:
-     * points = 50;
-     * break;
-     * case 5:
-     * points = 100;
-     * break;
-     * case 8:
-     * points = 150;
-     * break;
-     * case 13:
-     * points = 250;
-     * break;
-     * case 21:
-     * points = 500;
-     * break;
-     * default:
-     * points = 0;
-     * }
-     * 
-     * return points;
-     * }
-     */
 }
