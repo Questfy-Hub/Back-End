@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.questifyHub.app.Entities.Gifts;
 import com.questifyHub.app.Repositories.GiftsRepository;
-import com.questifyHub.app.Repositories.UserRepository;
 import com.questifyHub.app.Services.GiftsService;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -63,8 +62,13 @@ public class GiftsController {
     /**
      * Método para fazer a requisição da função createGifts
      * 
-     *
+     * @param giftName Nome do item
+     * @param price Valor em pontos do item
+     * @param category Categoria do item
+     * @param company Empresa do usuário que criou o item
+     * @param img Imagem do item
      * @return Objeto da classe Gifts que recebe gifts como parâmetro
+     * 
      */
     @PostMapping
     public Gifts createGifts(@RequestParam String giftName, @RequestParam Double price ,@RequestParam String category,
