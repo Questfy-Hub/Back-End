@@ -5,5 +5,5 @@ import com.questifyHub.app.Entities.Gifts;
 
 public interface GiftsRepository extends JpaRepository<Gifts, Long>{
 
-    Gifts getGiftByGiftName(String giftname);
+    Gifts getGiftByGiftName(String giftname);    
 }
