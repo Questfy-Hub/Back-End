@@ -3,9 +3,16 @@ package com.questifyHub.app.Services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.questifyHub.app.Entities.Company;
 import com.questifyHub.app.Entities.Gifts;
+import com.questifyHub.app.Entities.Task;
+import com.questifyHub.app.Entities.User;
 import com.questifyHub.app.Exceptions.ResourceNotFoundException;
+import com.questifyHub.app.Repositories.CompanyRepository;
 import com.questifyHub.app.Repositories.GiftsRepository;
+
+import jakarta.transaction.Transactional;
 
 /**
  * Classe GiftsService que possui a logica das funcionalidades do objeto gift (presentes/Itens resgatáveis na loja de pontos)
@@ -15,6 +22,11 @@ public class GiftsService {
     
     @Autowired
     private GiftsRepository giftsRepository;
+
+    @Autowired
+    private CompanyRepository companyRepository;
+
+
 
     /**
      * Método para requisitar as informações do objeto Gift pelo Id
@@ -67,5 +79,12 @@ public class GiftsService {
      */
     public void deleteGifts(Long id){
         giftsRepository.deleteById(id);
+    }
+
+    @Transactional
+    public List<Gifts> getGiftsByCompanyCode(Long companyCode) {
+        Company company = companyRepository.getCompanyByCompanyCode(companyCode);
+            //   .orElseThrow(() -> new RuntimeException("Empresa não encontrada"));
+        return company.getGiftsList();
     }
 }
