@@ -101,9 +101,9 @@ public class GiftsController {
         giftsService.deleteGifts(id);
     }
 
-    @GetMapping("/image/{giftname}")
-    public ResponseEntity<Resource> getImage(@PathVariable String giftname) {
-        var temp = giftsRepository.getGiftByGiftName(giftname);
+    @GetMapping("/image/{id}")
+    public ResponseEntity<Resource> getImage(@PathVariable Long id) {
+        var temp = giftsRepository.getReferenceById(id);
         var body = new ByteArrayResource(temp.getImage());
 
         return ResponseEntity.ok()
