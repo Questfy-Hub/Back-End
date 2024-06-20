@@ -81,6 +81,12 @@ public class GiftsService {
         giftsRepository.deleteById(id);
     }
 
+    /**
+     * Método para requisitar todos os Itens da loja por código da empresa
+     * 
+     * @param companyCode
+     * @return Lista de itens da loja com a mesma empresa
+     */
     @Transactional
     public List<Gifts> getGiftsByCompanyCode(Long companyCode) {
         Company company = companyRepository.getCompanyByCompanyCode(companyCode);
