@@ -54,6 +54,13 @@ public class Gifts {
         this.companyGifts = companyGifts;
     }
 
+    public Gifts( String giftName, Double price, String category, byte[] image, Company companyGifts) {
+        this.giftName = giftName;
+        this.price = price;
+        this.category = category;
+        this.image = image;
+        this.companyGifts = companyGifts;
+    }
     //Getters e Setters
     public int getGiftCode() {
         return giftCode;

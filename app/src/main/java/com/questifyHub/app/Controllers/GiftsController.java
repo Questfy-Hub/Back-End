@@ -1,24 +1,23 @@
 package com.questifyHub.app.Controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+
+import com.questifyHub.app.Entities.Company;
+import com.questifyHub.app.Services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.questifyHub.app.Entities.Gifts;
 import com.questifyHub.app.Repositories.GiftsRepository;
 import com.questifyHub.app.Repositories.UserRepository;
 import com.questifyHub.app.Services.GiftsService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Classe que faz o direcionamento das funções da entidade Gifts (Itens
@@ -37,6 +36,8 @@ public class GiftsController {
 
     @Autowired
     private GiftsService giftsService;
+    @Autowired
+    private CompanyService companyService;
 
     /**
      * Método para fazer a requisição da função getGiftsById
@@ -62,11 +63,19 @@ public class GiftsController {
     /**
      * Método para fazer a requisição da função createGifts
      * 
-     * @param gifts
+     *
      * @return Objeto da classe Gifts que recebe gifts como parâmetro
      */
     @PostMapping
-    public Gifts createGifts(@RequestBody Gifts gifts) {
+    public Gifts createGifts(@RequestParam String giftName, @RequestParam Double price ,@RequestParam String category,
+                             @RequestParam int company, @RequestParam(required = false) MultipartFile img) throws IOException {
+        Gifts gifts;
+        Company tempC = companyService.getCompanyById((long) company);
+        if(img == null){
+            gifts = new Gifts(giftName, price, category, Files.readAllBytes(Paths.get("generic item.png")), tempC);
+        }else{
+            gifts = new Gifts(giftName, price, category, img.getBytes(), tempC);
+        }
         return giftsService.createGifts(gifts);
     }
 
