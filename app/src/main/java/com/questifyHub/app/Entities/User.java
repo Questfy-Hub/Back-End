@@ -1,5 +1,7 @@
 package com.questifyHub.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.questifyHub.app.Exceptions.InvalidEmailException;
 import java.util.List;
 import com.questifyHub.app.Regex.Regex;
@@ -12,6 +14,7 @@ import jakarta.persistence.*;
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "users")
 public class User {
     @Id
@@ -48,12 +51,12 @@ public class User {
      */
     private byte[] image;
 
-    @JsonBackReference
+
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
     private Company companyUser;
 
-    @JsonBackReference
+
     @ManyToMany
     @JoinTable(name = "User_Set_Task", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_task"))
     private List<Task> taskUser;

@@ -1,13 +1,17 @@
 package com.questifyHub.app.Entities;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 /** Classe Company onde é gerado a entidade Company (empresa)
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "companyCode")
 @Table(name="company")
 public class Company {
     @Id
@@ -20,11 +24,10 @@ public class Company {
     @Column(name="cnpj")
     private String cnpj;
 
-    @JsonManagedReference
+
     @OneToMany(mappedBy = "companyUser")
     private List<User> userList;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "companyGifts")
     private List<Gifts> giftsList;
 

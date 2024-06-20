@@ -2,6 +2,8 @@ package com.questifyHub.app.Entities;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 /**
@@ -10,6 +12,7 @@ import jakarta.persistence.*;
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "statusCode")
 @Table(name = "status")
 public class Status {
     @Id
@@ -22,7 +25,6 @@ public class Status {
     @Column(name = "statusName")
     private String statusName;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "statusTask")
     private List<Task> taskList;
 

@@ -2,7 +2,10 @@ package com.questifyHub.app.Entities;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 /**
@@ -11,6 +14,7 @@ import jakarta.persistence.*;
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "taskCode")
 @Table(name = "task")
 public class Task {
     @Id
@@ -38,12 +42,11 @@ public class Task {
     @Column(name = "priority")
     private String priority;
 
-    @JsonManagedReference
+
     @ManyToOne
     @JoinColumn(name = "fk_statusId")
     private Status statusTask;
 
-    @JsonManagedReference
     @ManyToMany(mappedBy = "taskUser")
     private List<User> userTask;
 

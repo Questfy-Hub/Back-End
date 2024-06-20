@@ -1,12 +1,14 @@
 package com.questifyHub.app.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 /** Classe Company onde é gerado a entidade Gifts (recompensas)
  * @author João Paulo Rezende de Oliveira
  */
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "giftCode")
 @Table(name = "gifts")
 public class Gifts {
     @Id
@@ -24,7 +26,6 @@ public class Gifts {
 
     private byte[] image;
 
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
     private Company companyGifts;

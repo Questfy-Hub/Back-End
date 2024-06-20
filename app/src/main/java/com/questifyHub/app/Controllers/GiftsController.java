@@ -32,7 +32,7 @@ import com.questifyHub.app.Services.GiftsService;
 
 public class GiftsController {
 
-        @Autowired
+    @Autowired
     private GiftsRepository giftsRepository;
 
     @Autowired
