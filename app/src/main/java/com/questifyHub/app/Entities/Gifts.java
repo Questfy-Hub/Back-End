@@ -22,6 +22,8 @@ public class Gifts {
     @Column(name = "category")
     private String category;
 
+    private byte[] image;
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "fk_companyCode")
@@ -42,11 +44,12 @@ public class Gifts {
      * @param category
      * @param companyGifts
      */
-    public Gifts(int giftCode, String giftName, Double price, String category, Company companyGifts) {
+    public Gifts(int giftCode, String giftName, Double price, String category, byte[] image, Company companyGifts) {
         this.giftCode = giftCode;
         this.giftName = giftName;
         this.price = price;
         this.category = category;
+        this.image = image;
         this.companyGifts = companyGifts;
     }
 
@@ -83,12 +86,24 @@ public class Gifts {
         this.category = category;
     }
 
+    
+
     public Company getCompanyGifts() {
         return companyGifts;
     }
 
     public void setCompanyGifts(Company companyGifts) {
         this.companyGifts = companyGifts;
+    }
+
+
+    public byte[] getImage() {
+        return image;
+    }
+
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
     
     

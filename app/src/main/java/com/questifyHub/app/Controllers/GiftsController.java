@@ -2,6 +2,10 @@ package com.questifyHub.app.Controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.questifyHub.app.Entities.Gifts;
+import com.questifyHub.app.Repositories.GiftsRepository;
+import com.questifyHub.app.Repositories.UserRepository;
 import com.questifyHub.app.Services.GiftsService;
 
 /**
@@ -25,6 +31,9 @@ import com.questifyHub.app.Services.GiftsService;
 @CrossOrigin({ "http://localhost:4200", "https://questfyhub.netlify.app/" })
 
 public class GiftsController {
+
+        @Autowired
+    private GiftsRepository giftsRepository;
 
     @Autowired
     private GiftsService giftsService;
@@ -81,6 +90,16 @@ public class GiftsController {
     @DeleteMapping("/{id}")
     public void deleteGifts(@PathVariable Long id) {
         giftsService.deleteGifts(id);
+    }
+
+    @GetMapping("/image/{giftname}")
+    public ResponseEntity<Resource> getImage(@PathVariable String giftname) {
+        var temp = giftsRepository.getGiftByGiftName(giftname);
+        var body = new ByteArrayResource(temp.getImage());
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                .body(body);
     }
 
 }
